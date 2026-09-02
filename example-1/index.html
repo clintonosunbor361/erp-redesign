@@ -1,0 +1,126 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Acme CRM sales dashboard" />
+    <title>Acme CRM Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+
+    <main class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="#" aria-label="Acme CRM home">
+          <span class="brand-mark"><i></i><i></i></span>
+          <span>Acme CRM</span>
+        </a>
+
+        <nav class="nav" aria-label="Primary navigation">
+          <a class="nav-item active" href="#overview" data-page="Overview">
+            <svg viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1Z"/></svg>
+            Overview
+          </a>
+          <a class="nav-item" href="#contacts" data-page="Contacts">
+            <svg viewBox="0 0 24 24"><path d="M20 21a8 8 0 0 0-16 0M12 13a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z"/></svg>
+            Contacts
+          </a>
+          <a class="nav-item" href="#deals" data-page="Deals">
+            <svg viewBox="0 0 24 24"><path d="M4 7h16a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1Zm5 0V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2m-12 5h18m-7 0v2h-4v-2"/></svg>
+            Deals
+          </a>
+          <a class="nav-item" href="#tasks" data-page="Tasks">
+            <svg viewBox="0 0 24 24"><path d="M9 5H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1h-4M9 3h6v4H9Zm1 10 2 2 4-5"/></svg>
+            Tasks
+          </a>
+          <a class="nav-item" href="#calendar" data-page="Calendar">
+            <svg viewBox="0 0 24 24"><path d="M4 5h16a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm0 5h17M8 3v4m8-4v4"/></svg>
+            Calendar
+          </a>
+          <a class="nav-item" href="#reports" data-page="Reports">
+            <svg viewBox="0 0 24 24"><path d="M4 21h16M7 17v-5m5 5V5m5 12V9"/></svg>
+            Reports
+          </a>
+          <a class="nav-item" href="#settings" data-page="Settings">
+            <svg viewBox="0 0 24 24"><path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm8.2-3.5c0-.5-.1-1.1-.2-1.6l2-1.5-2-3.4-2.4 1a9 9 0 0 0-2.7-1.6L14.6 2h-4L10 4.8a9 9 0 0 0-2.7 1.6L5 5.5 3 8.9l2 1.5a8 8 0 0 0 0 3.2l-2 1.5 2 3.4 2.4-1a9 9 0 0 0 2.7 1.6l.4 2.9h4l.5-2.9a9 9 0 0 0 2.7-1.6l2.4 1 2-3.4-2-1.5c0-.5.1-1.1.1-1.6Z"/></svg>
+            Settings
+          </a>
+        </nav>
+
+        <button class="profile" type="button">
+          <span class="avatar">OR</span>
+          <span class="profile-copy"><strong>Olivia Rhye</strong><small>Sales Manager</small></span>
+          <svg viewBox="0 0 24 24"><path d="m8 10 4 4 4-4"/></svg>
+        </button>
+      </aside>
+
+      <section class="workspace">
+        <header class="topbar">
+          <label class="search">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16 16 5 5"/></svg>
+            <input id="searchInput" type="search" placeholder="Search deals, companies..." />
+            <kbd>⌘ K</kbd>
+          </label>
+          <button class="icon-button notification" type="button" aria-label="Notifications">
+            <svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9m-8 12h4"/></svg>
+            <span></span>
+          </button>
+          <button id="downloadPdf" class="export-button" type="button">
+            <svg viewBox="0 0 24 24"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 20h14"/></svg>
+            Export PDF
+          </button>
+        </header>
+
+        <div class="content" id="overview">
+          <div class="heading-row">
+            <div>
+              <p class="eyebrow">TUESDAY, SEPTEMBER 2</p>
+              <h1>Good morning, Olivia</h1>
+              <p>Here’s what’s happening with your business today.</p>
+            </div>
+            <button class="mobile-export" type="button" data-print>Export PDF</button>
+          </div>
+
+          <section class="stats-grid" aria-label="Sales metrics">
+            <article class="stat-card"><p>Total Deals</p><div><strong>128</strong><svg class="spark" viewBox="0 0 94 34"><defs><linearGradient id="fade1" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#438ef7" stop-opacity=".24"/><stop offset="1" stop-color="#438ef7" stop-opacity="0"/></linearGradient></defs><path class="fill blue" d="M2 29 16 20 29 21 44 7 59 20 75 7 92 13V34H2Z"/><path d="M2 29 16 20 29 21 44 7 59 20 75 7 92 13"/></svg></div><span class="trend">↑ 12% <em>from last month</em></span></article>
+            <article class="stat-card"><p>Open Deals</p><div><strong>64</strong><svg class="spark" viewBox="0 0 94 34"><path class="fill blue" d="M2 29 14 22 26 24 41 8 56 16 70 5 83 9 92 8V34H2Z"/><path d="M2 29 14 22 26 24 41 8 56 16 70 5 83 9 92 8"/></svg></div><span class="trend">↑ 8% <em>from last month</em></span></article>
+            <article class="stat-card"><p>Won Deals</p><div><strong>42</strong><svg class="spark green" viewBox="0 0 94 34"><path class="fill green" d="M2 29 15 22 26 25 42 7 56 21 69 9 79 14 92 11V34H2Z"/><path d="M2 29 15 22 26 25 42 7 56 21 69 9 79 14 92 11"/></svg></div><span class="trend">↑ 15% <em>from last month</em></span></article>
+            <article class="stat-card"><p>Revenue</p><div><strong>$98,420</strong><svg class="spark" viewBox="0 0 94 34"><path class="fill blue" d="M2 29 16 22 28 26 44 12 59 18 72 6 83 13 92 9V34H2Z"/><path d="M2 29 16 22 28 26 44 12 59 18 72 6 83 13 92 9"/></svg></div><span class="trend">↑ 18% <em>from last month</em></span></article>
+          </section>
+
+          <section class="middle-grid">
+            <article class="panel pipeline-panel">
+              <div class="panel-title"><h2>Deal Pipeline</h2><select id="period"><option>This Month</option><option>Last Month</option><option>This Quarter</option></select></div>
+              <div id="pipeline" class="pipeline"></div>
+            </article>
+
+            <article class="panel activities-panel">
+              <div class="panel-title"><h2>Upcoming Activities</h2><button type="button">View All</button></div>
+              <div id="activities" class="activity-list"></div>
+            </article>
+          </section>
+
+          <section class="panel deals-panel" id="deals">
+            <div class="panel-title"><h2>Recent Deals</h2><button type="button">View All Deals</button></div>
+            <div class="table-scroll">
+              <table>
+                <thead><tr><th>Deal Name</th><th>Company</th><th>Amount</th><th>Stage</th><th>Close Date</th><th></th></tr></thead>
+                <tbody id="dealsBody"></tbody>
+              </table>
+            </div>
+            <p id="emptyState" class="empty-state" hidden>No deals match your search.</p>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <div id="toast" class="toast" role="status">Opening your print dialog — choose “Save as PDF”.</div>
+    <script src="app.js"></script>
+  </body>
+</html>
