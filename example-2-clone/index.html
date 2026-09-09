@@ -30,7 +30,6 @@
 <a href="#settings" aria-label="Settings" title="Settings"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 3 1-2h4l1 2 3 2 2 1v4l-1 2 1 2v4l-3 1-2 2h-5l-2-2-3-1v-4l1-2-1-2V6l2-1 2-2Z"/><circle cx="12" cy="12" r="3"/></svg><span class="nav-text">Settings</span></a>
 <a href="#security" aria-label="Team & Access" title="Team & Access"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2 9 4v6c0 5-5 9-9 10-4-1-9-5-9-10V6l9-4Z"/><path d="m8 12 3 3 5-6"/></svg><span class="nav-text">Team & Access</span></a>
       </nav>
-      <button class="user" type="button"><span>FP</span><label><strong>Fandawu Punx</strong><small>fandawu6@gmail.com</small></label></button>
     </aside>
 
     <section class="main" id="mainContent" tabindex="-1">
@@ -45,7 +44,7 @@
 
       <div class="dashboard" id="overview">
         <div class="dashboard-head">
-          <div><h1>Dashboard</h1><p>Your sales, clients, and daily priorities in one place.</p></div>
+          <div><h1>Good Day Admin</h1><p>Your sales, clients, and daily priorities in one place.</p></div>
           <div class="head-actions">
             <button id="exportPdf" class="export" type="button">⇩ Export PDF</button>
             <select id="range" aria-label="Reporting period"><option>January 2024 - May 2024</option><option>June 2024 - December 2024</option></select>
@@ -55,41 +54,36 @@
         <section class="layout">
           <div class="left-column">
             <div class="summary-grid">
-              <article class="update-card"><p><span></span> Update</p><small>Feb 12th 2024</small><h2>Sales revenue increased<br><b>40%</b> in 1 week</h2><a href="#statistics">See Statistics ›</a></article>
-              <article class="metric"><div><p>Net Income</p><button>•••</button></div><h2><sup>$</sup>193.000</h2><small class="up">↗ +35% <i>from last month</i></small></article>
-              <article class="metric"><div><p>Total Return</p><button>•••</button></div><h2><sup>$</sup>32.000</h2><small class="down">↘ -24% <i>from last month</i></small></article>
+              <article class="update-card kpi-card is-highlighted"><p><span></span> Update</p><small>Feb 12th 2024</small><h2>Sales revenue increased<br><b>40%</b> in 1 week</h2><a href="#statistics">See Statistics ›</a></article>
+              <article class="metric kpi-card"><div><p>Net Income</p><button>•••</button></div><h2><sup>$</sup>193.000</h2><small class="up">↗ +35% <i>from last month</i></small></article>
+              <article class="metric kpi-card"><div><p>Total Return</p><button>•••</button></div><h2><sup>$</sup>32.000</h2><small class="down">↘ -24% <i>from last month</i></small></article>
             </div>
 
             <div class="data-grid">
-              <article class="panel transactions" id="transactions"><div class="title"><h2>Transaction</h2><button>•••</button></div><div id="transactionList"></div></article>
+              <article class="panel revenue" id="statistics">
+                <div class="title revenue-title"><h2>Revenue</h2><div class="revenue-controls"><select id="chartPeriod" aria-label="Chart period"><option value="weekly">Weekly</option><option value="monthly" selected>Monthly</option><option value="quarterly">Quarterly</option><option value="yearly">Yearly</option></select></div></div>
+                <h3>$193.000 <small>↗ +35% <i>from last month</i></small></h3>
+                <div id="revenueChart" class="bar-chart" aria-label="Revenue chart"></div>
+              </article>
               <div class="charts">
-                <article class="panel revenue" id="statistics">
-                  <div class="title"><h2>Revenue</h2><div class="legend"><span><i class="income"></i>Income</span><span><i class="expenses"></i>Expenses</span></div></div>
-                  <h3>$193.000 <small>↗ +35% <i>from last month</i></small></h3>
-                  <div id="revenueChart" class="bar-chart"></div>
-                </article>
                 <article class="panel sales-report">
-                  <div class="title"><h2>Sales Report</h2><button>•••</button></div>
+                  <div class="title"><h2>Product Item Count</h2><button>•••</button></div>
                   <div class="horizontal-chart">
-                    <div><label>Product Launched <b>(233)</b></label><span style="width:68%"></span></div>
-                    <div><label>Ongoing Product <b>(23)</b></label><span style="width:45%"></span></div>
-                    <div><label>Product Sold <b>(482)</b></label><span style="width:91%"></span></div>
-                    <footer><span>0</span><span>100</span><span>200</span><span>300</span><span>400</span></footer>
+                    <div><label><span>Suit <b>(233)</b></span><strong>233 items</strong></label><span class="report-track"><i style="width:48%"></i></span></div>
+                    <div class="report-featured"><label><span>Agbada <b>(482)</b></span><strong>482 items</strong></label><span class="report-track"><i style="width:100%"></i><em>100%</em></span></div>
+                    <div><label><span>Kaftan <b>(317)</b></span><strong>317 items</strong></label><span class="report-track"><i style="width:66%"></i></span></div>
                   </div>
                 </article>
               </div>
             </div>
           </div>
 
-          <aside class="right-column">
-            <article class="panel performance">
-              <h2>Total View Performance</h2><div class="rule"></div>
-              <div class="donut"><div><small>Total Count</small><strong>565K</strong></div><b class="bubble b1">16%</b><b class="bubble b2">23%</b><b class="bubble b3">68%</b></div>
-              <p>Here are some tips on how to<br>improve your score.</p>
-              <button type="button">Guide Views</button>
-              <div class="key"><span><i></i>View Count</span><span><i></i>Percentage</span><span><i></i>Sales</span></div>
+          <aside class="right-column transaction-column">
+            <article class="panel transactions compact-transactions" id="transactions">
+              <div class="title"><div><h2>Transaction</h2><p id="transactionFilter" class="transaction-filter">Recent activity</p></div><button id="clearChartFilter" class="clear-filter" type="button" hidden>Clear filter</button></div>
+              <div id="transactionState" class="transaction-state" role="status"></div>
+              <div id="transactionList"></div>
             </article>
-            <article class="upgrade"><div class="burst">✦</div><span class="mark">◩</span><h2>Level up your <b>sales</b><br>managing to the<br>next level.</h2><p>An any way to manage sales with care<br>and precision.</p><button type="button">Update to Siohioma+</button></article>
           </aside>
         </section>
       </div>

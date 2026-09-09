@@ -1,15 +1,61 @@
 const products=[
-  ["👕","Premium T-Shirt","Completed"],["♠","Playstation 5","Pending"],["♟","Hoodie Gonibong","Pending"],
-  ["▣","iPhone 15 Pro Max","Completed"],["☕","Lotse","Completed"],["◉","Starbucks","Completed"],["👕","Tinek Detstar T-Shirt","Completed"]
+  {icon:"shirt",name:"Premium T-Shirt",status:"Pending",month:"Jan",date:"Payment confirmation",amount:"$300.00",direction:"pending"},
+  {icon:"bag",name:"Leather Mini Bag",status:"Completed",month:"Feb",date:"Today, 09:00 AM",amount:"+$5,000.00",direction:"income"},
+  {icon:"dress",name:"Hoodie Gonibong",status:"Completed",month:"Mar",date:"Yesterday, 2:30 PM",amount:"-$4,000.00",direction:"expense"},
+  {icon:"phone",name:"iPhone 15 Pro Max",status:"Completed",month:"Apr",date:"Apr 1, 2024",amount:"+$1,200.00",direction:"income"},
+  {icon:"cup",name:"Lotse",status:"Completed",month:"May",date:"May 4, 2024",amount:"+$860.00",direction:"income"},
+  {icon:"leaf",name:"Starbucks",status:"Completed",month:"Jun",date:"Jun 19, 2024",amount:"-$240.00",direction:"expense"},
+  {icon:"shirt",name:"Tinek Detstar T-Shirt",status:"Completed",month:"Jul",date:"Jul 12, 2024",amount:"+$740.00",direction:"income"}
 ];
-const heights=[[88,72],[58,83],[79,64],[73,54],[94,76],[84,69]];
+const chartData={
+  weekly:{labels:["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],values:[[58,42],[72,53],[49,61],[83,68],[76,55],[91,74],[65,48]]},
+  monthly:{labels:["Jan","Feb","Mar","Apr","May","Jun","Jul"],values:[[88,72],[58,83],[79,64],[73,54],[94,76],[84,69],[90,75]]},
+  quarterly:{labels:["Q1","Q2","Q3","Q4"],values:[[64,52],[82,68],[91,73],[77,65]]},
+  yearly:{labels:["2021","2022","2023","2024"],values:[[55,48],[69,57],[81,66],[94,72]]}
+};
+const icons={shirt:"TS",bag:"BG",dress:"DR",phone:"PH",cup:"CP",leaf:"LF"};
 const list=document.querySelector("#transactionList");
-function renderTransactions(q=""){
-  const filtered=products.filter(p=>p.join(" ").toLowerCase().includes(q.toLowerCase()));
-  list.innerHTML=filtered.map(p=>`<div class="transaction"><span class="product-icon">${p[0]}</span><span class="transaction-copy"><strong>${p[1]}</strong><small>Jul 12th 2024</small></span><span class="transaction-status"><strong>${p[2]}</strong><small>0JWEJS7ISNC</small></span></div>`).join("")||'<p style="color:#888;font-size:11px">No matching transactions.</p>';
+const transactionState=document.querySelector("#transactionState");
+let searchQuery="",activeMonth="";
+function setTransactionState(type,message){
+  transactionState.className=`transaction-state ${type}`;
+  transactionState.innerHTML=type==="loading"?'<span class="state-spinner"></span><strong>Loading transactions...</strong>':type==="error"?`<strong>Unable to load transactions</strong><small>${message||"Check your connection and try again."}</small><button type="button" id="retryTransactions">Try again</button>`:`<strong>No transactions found</strong><small>${message||"Try changing the search or chart filter."}</small>`;
+  transactionState.hidden=false;list.hidden=true;
+  document.querySelector("#retryTransactions")?.addEventListener("click",loadTransactions);
 }
-document.querySelector("#revenueChart").innerHTML=heights.map(h=>`<span class="bar-pair"><i style="height:${h[0]}%"></i><i style="height:${h[1]}%"></i></span>`).join("");
-document.querySelector("#search").addEventListener("input",e=>renderTransactions(e.target.value));
+function renderTransactions(){
+  const filtered=products.filter(p=>(!activeMonth||p.month===activeMonth)&&`${p.name} ${p.status} ${p.month}`.toLowerCase().includes(searchQuery.toLowerCase()));
+  if(!filtered.length){setTransactionState("empty");return}
+  transactionState.hidden=true;list.hidden=false;
+  list.innerHTML=filtered.slice(0,5).map(p=>`<div class="transaction ${p.status==="Pending"?"needs-action":""}" data-transaction="${p.name}"><span class="product-icon icon-${p.icon}" aria-hidden="true">${icons[p.icon]}</span><span class="transaction-copy"><strong>${p.name}${p.status==="Pending"?` <b>${p.amount}</b>`:""}</strong><small>${p.date}</small></span>${p.status==="Pending"?`<span class="transaction-actions"><button class="approve-transaction" type="button" aria-label="Approve ${p.name}">✓</button><button class="dismiss-transaction" type="button" aria-label="Dismiss ${p.name}">×</button></span>`:`<strong class="transaction-amount ${p.direction}">${p.amount}</strong>`}</div>`).join("");
+}
+function loadTransactions(){
+  setTransactionState("loading");
+  window.setTimeout(()=>{try{renderTransactions()}catch(error){setTransactionState("error",error.message)}},450);
+}
+function renderChart(period="monthly"){
+  const data=chartData[period],chart=document.querySelector("#revenueChart");
+  chart.classList.remove("chart-ready");
+  const totals=data.values.map(([income,expenses])=>Math.round((income+expenses)/2));
+  chart.innerHTML=`<div class="chart-y-axis"><span>80k</span><span>60k</span><span>40k</span><span>20k</span><span>0</span></div><div class="chart-plot"><div class="average-line"><span>Avg. 59.1k</span></div>${totals.map((height,index)=>`<button class="bar-group ${period==="monthly"&&data.labels[index]==="May"?"featured":""}" type="button" data-label="${data.labels[index]}" aria-label="Filter transactions for ${data.labels[index]}"><span class="single-bar" style="--bar-height:${height}%"></span><small>${data.labels[index]}</small></button>`).join("")}</div>`;
+  requestAnimationFrame(()=>requestAnimationFrame(()=>chart.classList.add("chart-ready")));
+  chart.querySelectorAll(".bar-group").forEach(bar=>bar.addEventListener("click",()=>{
+    const label=bar.dataset.label;
+    chart.querySelectorAll(".bar-group").forEach(item=>item.classList.toggle("selected",item===bar));
+    if(period==="monthly"){activeMonth=label;document.querySelector("#transactionFilter").textContent=`Showing ${label} transactions`;document.querySelector("#clearChartFilter").hidden=false}
+    else{activeMonth="";document.querySelector("#transactionFilter").textContent=`${label} overview`;document.querySelector("#clearChartFilter").hidden=true}
+    renderTransactions();
+  }));
+}
+document.querySelector("#chartPeriod").addEventListener("change",e=>{activeMonth="";document.querySelector("#transactionFilter").textContent="Recent activity";document.querySelector("#clearChartFilter").hidden=true;renderChart(e.target.value);loadTransactions()});
+document.querySelector("#clearChartFilter").addEventListener("click",()=>{activeMonth="";document.querySelectorAll(".bar-group").forEach(b=>b.classList.remove("selected"));document.querySelector("#transactionFilter").textContent="Recent activity";document.querySelector("#clearChartFilter").hidden=true;renderTransactions()});
+document.querySelector("#search").addEventListener("input",e=>{searchQuery=e.target.value;renderTransactions()});
+list.addEventListener("click",event=>{
+  const row=event.target.closest(".transaction");
+  if(!row)return;
+  if(event.target.closest(".approve-transaction")){row.classList.remove("needs-action");row.querySelector(".transaction-actions").innerHTML='<strong class="action-confirmed">Approved</strong>'}
+  if(event.target.closest(".dismiss-transaction")){row.classList.add("dismissed");window.setTimeout(()=>row.remove(),220)}
+});
 document.querySelectorAll(".sidebar nav a").forEach(a=>a.addEventListener("click",()=>{document.querySelectorAll(".sidebar nav a").forEach(x=>{x.classList.remove("active");x.removeAttribute("aria-current")});a.classList.add("active");a.setAttribute("aria-current","page");closeMobileSidebar();if(mobileQuery.matches)document.querySelector("#mainContent").focus({preventScroll:true})}));
 const app=document.querySelector('.app');
 const sidebar=document.querySelector('.sidebar');
@@ -50,7 +96,26 @@ mobileQuery.addEventListener('change',()=>{closeMobileSidebar()});
 document.addEventListener('keydown',event=>{if(event.key==='Escape'&&mobileQuery.matches&&sidebar.classList.contains('open')){closeMobileSidebar();mobileMenu.focus()}});
 syncSidebar();
 document.querySelector("#exportPdf").addEventListener("click",()=>{const t=document.querySelector("#toast");t.classList.add("show");setTimeout(()=>{t.classList.remove("show");window.print()},600)});
-renderTransactions();
+renderChart();
+loadTransactions();
+
+const kpiGroup = document.querySelector(".summary-grid");
+const kpiCards = [...kpiGroup.querySelectorAll(".kpi-card")];
+const defaultKpi = kpiCards[0];
+
+function highlightKpi(card = defaultKpi) {
+  kpiCards.forEach(kpi => kpi.classList.toggle("is-highlighted", kpi === card));
+}
+
+kpiCards.forEach(card => {
+  card.addEventListener("pointerenter", () => highlightKpi(card));
+  card.addEventListener("focusin", () => highlightKpi(card));
+});
+
+kpiGroup.addEventListener("pointerleave", () => highlightKpi());
+kpiGroup.addEventListener("focusout", event => {
+  if (!kpiGroup.contains(event.relatedTarget)) highlightKpi();
+});
 
 const sectionTooltip=document.createElement('div');
 sectionTooltip.className='sidebar-tooltip';

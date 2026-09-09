@@ -3,3 +3,19 @@
 @media(max-width:760px){body{padding:0}.app{display:block;min-height:100vh;border-radius:0}.sidebar{position:fixed;z-index:10;top:0;bottom:0;left:-230px;width:220px;transition:.25s}.sidebar.open{left:0;box-shadow:10px 0 40px #0005}.sidebar .logo,.sidebar .menu-label,.sidebar nav a{justify-content:flex-start;font-size:initial}.sidebar nav a{font-size:13px}.sidebar nav a em,.sidebar nav a b,.sidebar .user label{display:initial}.mobile-menu{display:block;border:0;background:transparent;font-size:20px}.role{font-size:16px}.round{display:none}.add{font-size:0}.add b{font-size:12px}.search{width:min(220px,45vw)}.dashboard{padding:14px}.dashboard-head{align-items:flex-end}.dashboard-head p{max-width:210px}.head-actions{display:grid}.dashboard-head select{max-width:190px}.summary-grid{grid-template-columns:1fr 1fr}.update-card{grid-column:1/-1}.data-grid{grid-template-columns:1fr}.right-column{grid-template-columns:1fr}.upgrade{min-height:280px}}
 @media(max-width:460px){header{padding:0 10px}.role{display:none}.search{width:100%;margin-left:auto}.dashboard-head{display:block}.head-actions{grid-template-columns:1fr 1fr;margin-top:13px}.summary-grid{grid-template-columns:1fr}.update-card{grid-column:auto}.right-column{display:block}.upgrade{margin-top:12px}}
 @media print{@page{size:landscape;margin:7mm}body{padding:0;background:#fff;print-color-adjust:exact;-webkit-print-color-adjust:exact}.app{width:100%;min-height:0;border-radius:15px;box-shadow:none}.export,.mobile-menu,#toast{display:none}.dashboard{padding-top:8px}.panel,.metric,.update-card,.upgrade{break-inside:avoid}}
+
+/* Fashion CRM typography: functional UI with restrained editorial accents. */
+body { font-family: "Sora", sans-serif; }
+.logo,
+.role,
+.dashboard-head h1,
+.update-card h2,
+.metric h2,
+.revenue h3,
+.donut strong,
+.upgrade h2 { font-family: "Libre Baskerville", serif; }
+.dashboard-head h1,
+.metric h2,
+.revenue h3 { letter-spacing: -.035em; }
+.logo { letter-spacing: -.025em; }
+.update-card h2 { line-height: 1.45; }
