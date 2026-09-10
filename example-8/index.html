@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Siohioma Sales Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <aside class="sidebar" id="sidebar">
+      <a href="#" class="logo"><span>✳</span>Siohioma</a>
+      <p class="menu-label">MENU</p>
+      <nav aria-label="Navigation">
+        <a class="active" href="#overview"><i data-icon="grid"></i>Overview</a>
+        <a href="#statistics"><i data-icon="chart"></i>Statistics</a>
+        <a href="#customers"><i data-icon="users"></i>Customers</a>
+        <a href="#collections"><i data-icon="box"></i>Collections <b>⌄</b></a>
+        <a href="#messages"><i data-icon="mail"></i>Messages <em>13</em></a>
+        <a href="#transactions"><i data-icon="receipt"></i>Transactions</a>
+      </nav>
+      <div class="divider"></div>
+      <p class="menu-label">GENERAL</p>
+      <nav>
+        <a href="#settings"><i data-icon="settings"></i>Settings</a>
+        <a href="#security"><i data-icon="shield"></i>Security</a>
+      </nav>
+      <button class="user" type="button"><span>FP</span><label><strong>Fandawu Punx</strong><small>fandawu6@gmail.com</small></label></button>
+    </aside>
+
+    <section class="main">
+      <header>
+        <button class="mobile-menu" type="button" aria-label="Open menu"><span data-icon="menu"></span></button>
+        <button class="role" type="button">Sales Admin <span data-icon="chevron"></span></button>
+        <label class="search"><input id="search" type="search" aria-label="Search transactions" placeholder="Search anything in Siohioma..." /><span data-icon="search"></span></label>
+        <button class="round" type="button" aria-label="Inbox"><span data-icon="mail"></span></button>
+        <button class="round" type="button" aria-label="Share"><span data-icon="share"></span></button>
+        <button class="add" type="button">Add new product <b>+</b></button>
+      </header>
+
+      <div class="dashboard" id="overview">
+        <div class="dashboard-head">
+          <div><h1>Dashboard</h1><p>A clear view of your sales, collections, and daily operations.</p></div>
+          <div class="head-actions">
+            <button id="exportPdf" class="export" type="button">⇩ Export PDF</button>
+            <select id="range" aria-label="Reporting period"><option value="sep">September 2026</option><option value="aug">August 2026</option></select>
+          </div>
+        </div>
+
+        <section class="layout">
+          <div class="left-column">
+            <div class="summary-grid">
+              <article class="update-card"><p><span></span> Update</p><small>Sep 10th 2026</small><h2>Sales revenue increased<br><b id="growth">40%</b> in 1 week</h2><a href="#statistics">See Statistics ›</a></article>
+              <article class="metric"><div><p>Net Income</p><button>•••</button></div><h2 id="incomeValue"><sup>$</sup>193,000</h2><small class="up">↗ +35% <i>from last month</i></small></article>
+              <article class="metric"><div><p>Total Return</p><button>•••</button></div><h2 id="returnValue"><sup>$</sup>32,000</h2><small class="down">↘ -24% <i>from last month</i></small></article>
+            </div>
+
+            <div class="data-grid">
+              <article class="panel transactions" id="transactions"><div class="title"><h2>Transaction</h2><button>•••</button></div><div id="transactionList"></div></article>
+              <div class="charts">
+                <article class="panel revenue" id="statistics">
+                  <div class="title"><h2>Revenue</h2><div class="legend"><span><i class="income"></i>Income</span><span><i class="expenses"></i>Expenses</span></div></div>
+                  <h3><span id="revenueValue">$193,000</span> <small>↗ +35% <i>from last month</i></small></h3>
+                  <div id="revenueChart" class="bar-chart"></div>
+                </article>
+                <article class="panel sales-report">
+                  <div class="title"><h2>Sales Report</h2><button>•••</button></div>
+                  <div class="horizontal-chart">
+                    <div><label>Units Launched <b>(233)</b></label><span style="width:61%"></span></div>
+                    <div><label>Ongoing Collections <b>(23)</b></label><span style="width:45%"></span></div>
+                    <div><label>Units Sold <b>(482)</b></label><span style="width:91%"></span></div>
+                    <footer><span>0</span><span>100</span><span>200</span><span>300</span><span>400</span></footer>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+
+          <aside class="right-column">
+            <article class="panel performance">
+              <h2>Sales by Collection</h2><div class="rule"></div>
+              <div class="donut"><div><small>Units Sold</small><strong>565</strong></div><b class="bubble b1">16%</b><b class="bubble b2">23%</b><b class="bubble b3">61%</b></div>
+              <p>See which collections your<br>customers love most.</p>
+              <button type="button">View Breakdown</button>
+              <div class="key"><span><i></i>Ready-to-wear</span><span><i></i>Bespoke</span><span><i></i>Accessories</span></div>
+            </article>
+            <article class="upgrade"><div class="burst">✦</div><span class="mark">◩</span><h2>Level up your <b>sales</b><br>managing to the<br>next level.</h2><p>Bring your collections, customers,<br>and orders together.</p><button type="button">Update to Siohioma+</button></article>
+          </aside>
+        </section>
+      </div>
+    </section>
+  </main>
+  <button class="drawer-backdrop" aria-label="Close navigation" hidden></button><dialog id="dialog"><div class="dialog-head"><h2 id="dialogTitle"></h2><button id="closeDialog" aria-label="Close dialog">&times;</button></div><div id="dialogBody"></div></dialog><div id="toast" role="status">Choose “Save as PDF” in the print dialog.</div>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 # ERP Redesign Dashboard Concepts
 
-Seven responsive dashboard concepts built with HTML, CSS, and JavaScript.
+Nine responsive dashboard concepts built with HTML, CSS, and JavaScript.
 
 - **Example 1:** Light glassmorphism CRM dashboard with PDF export
 - **Example 2:** Green sales administration dashboard with PDF export
@@ -10,5 +10,9 @@ Seven responsive dashboard concepts built with HTML, CSS, and JavaScript.
 
 - **Example 6:** AI-BL health dashboard recreated from the supplied reference, with lime accents, tracker charts, activity checklist, and breathing timer
 - **Example 2 Clone:** Exact copy of Example 2 in `example-2-clone`, ready for separate customization
+
+- **Example 7:** Vault inventory dashboard with product management, tag filters, stock charts, restock review, and responsive navigation
+
+- **Example 8:** Fashion sales admin dashboard with forest-green navigation, monthly reporting, collection mix, product creation, and responsive mobile navigation
 
 Open any example's `index.html` directly in a browser, including `example-5/index.html`. Example 5 uses in-memory demo data; additions reset on reload.

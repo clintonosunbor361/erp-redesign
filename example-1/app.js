@@ -1,15 +1,15 @@
 const pipelineSets = {
   "This Month": [
-    ["New", 32, 84, "#3d8ff5"], ["Qualified", 28, 73, "#76baf2"],
-    ["Proposal", 18, 50, "#9f8ce6"], ["Negotiation", 10, 29, "#d99ce4"], ["Won", 8, 23, "#72c8aa"]
+    ["Suit", 32, 84, "#3d8ff5"], ["Kaftan", 28, 73, "#76baf2"],
+    ["Agbada", 18, 50, "#9f8ce6"], ["Shoes", 10, 29, "#d99ce4"]
   ],
   "Last Month": [
-    ["New", 29, 76, "#3d8ff5"], ["Qualified", 25, 66, "#76baf2"],
-    ["Proposal", 16, 45, "#9f8ce6"], ["Negotiation", 11, 31, "#d99ce4"], ["Won", 7, 20, "#72c8aa"]
+    ["Suit", 29, 76, "#3d8ff5"], ["Kaftan", 25, 66, "#76baf2"],
+    ["Agbada", 16, 45, "#9f8ce6"], ["Shoes", 11, 31, "#d99ce4"]
   ],
   "This Quarter": [
-    ["New", 86, 92, "#3d8ff5"], ["Qualified", 71, 76, "#76baf2"],
-    ["Proposal", 48, 54, "#9f8ce6"], ["Negotiation", 31, 38, "#d99ce4"], ["Won", 24, 29, "#72c8aa"]
+    ["Suit", 86, 92, "#3d8ff5"], ["Kaftan", 71, 76, "#76baf2"],
+    ["Agbada", 48, 54, "#9f8ce6"], ["Shoes", 31, 38, "#d99ce4"]
   ]
 };
 
@@ -20,9 +20,9 @@ const activities = [
 ];
 
 const deals = [
-  { name: "Enterprise Plan", company: "Globex Corporation", amount: "$24,000", stage: "Proposal", date: "Sep 12, 2026" },
-  { name: "Growth Suite", company: "Stark Industries", amount: "$18,500", stage: "Won", date: "Sep 18, 2026" },
-  { name: "Team Workspace", company: "Zylker Inc.", amount: "$12,800", stage: "Proposal", date: "Sep 26, 2026" }
+  { name: "Suit", customer: "Tunde Adewale", amount: "$24,000", date: "Sep 12, 2026" },
+  { name: "Kaftan", customer: "Kola Williams", amount: "$18,500", date: "Sep 18, 2026" },
+  { name: "Agbada", customer: "Deji Balogun", amount: "$12,800", date: "Sep 26, 2026" }
 ];
 
 const pipeline = document.querySelector("#pipeline");
@@ -54,9 +54,8 @@ function renderDeals(query = "") {
   const visible = deals.filter(deal => Object.values(deal).some(value => value.toLowerCase().includes(normalized)));
   dealsBody.innerHTML = visible.map(deal => `
     <tr>
-      <td>${deal.name}</td><td>${deal.company}</td><td>${deal.amount}</td>
-      <td><span class="stage ${deal.stage === "Won" ? "won" : ""}">${deal.stage}</span></td>
-      <td>${deal.date}</td><td><button class="more" aria-label="More options">⋮</button></td>
+      <td>${deal.name}</td><td>${deal.customer}</td><td>${deal.amount}</td>
+      <td>${deal.date}</td>
     </tr>`).join("");
   emptyState.hidden = visible.length > 0;
   document.querySelector(".table-scroll").hidden = visible.length === 0;
