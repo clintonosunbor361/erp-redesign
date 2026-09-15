@@ -41,6 +41,10 @@ h1{font-weight:600;letter-spacing:-.035em}header p{font-weight:400}
 .donut:after{display:none}.donut>div{transform:none}
 .spending>h2,.category span{font-weight:500}.category small{font-weight:400}.category strong{font-weight:600}
 :root{--shell:#f9f9f9;--side:#f9f9f9;--card:#f9f9f9}
+:root{--line:#dcdedc}
+.workspace{background:#fff}
+.kpi,.section-card,.rail-card{border-color:#dcdedc;box-shadow:none}
+.spending .inner,.mini-chart,.table-head,.transaction{border-color:#d9dcd9;background:#fff}
 header{height:78px}
 .kpi{min-height:108px;padding:15px 18px}.kpi strong{margin:14px 0 6px}
 .spending .inner{min-height:220px}.donut{width:168px;height:168px}
