@@ -118,6 +118,47 @@ html{scroll-behavior:smooth;scroll-padding-top:140px}
 /* Stable monetary typography: compact summaries, exact accessible values. */
 .dashboard-grid .summary-grid>.metric h2{font-size:34px;letter-spacing:-.7px;white-space:nowrap;font-variant-numeric:tabular-nums}
 .currency-symbol{font-size:.65em;margin-right:3px;vertical-align:baseline;font-weight:500}
+
+/* KPI highlight follows hover or keyboard focus, then returns home. */
+.dashboard-grid .kpi-card{color:var(--ink);background:#fff;border:1px solid #dfe3df;box-shadow:none;transition:background-color .28s ease,color .28s ease,border-color .28s ease,box-shadow .28s ease,transform .28s ease}
+.dashboard-grid .kpi-card.is-highlighted{color:#fff;background:#063c29;border-color:#063c29;box-shadow:0 14px 28px rgba(0,44,29,.18);transform:translateY(-2px)}
+.dashboard-grid .update-card:not(.is-highlighted)>small,.dashboard-grid .update-card:not(.is-highlighted)>a{color:#878c88}
+.dashboard-grid .update-card:not(.is-highlighted) h2 b{color:#68a70c}
+.dashboard-grid .kpi-card.is-highlighted.metric h2{color:#fff}
+.dashboard-grid .kpi-card.is-highlighted.metric small i{color:#b9cbc4}
+.dashboard-grid .kpi-card.is-highlighted .detail-arrow{border-color:#ffffff38;color:#fff;background:#ffffff16}
+.dashboard-grid .kpi-card.is-highlighted .detail-arrow:hover{border-color:#ffffff65;background:#ffffff24}
+.dashboard-grid .kpi-card:focus-within{outline:3px solid rgba(167,226,46,.35);outline-offset:2px}
+@media(prefers-reduced-motion:reduce){.dashboard-grid .kpi-card{transition:none}}
+
+/* Total Sales uses the same paired-column language as Revenue. */
+.sales-column-chart{display:grid;grid-template-columns:30px minmax(0,1fr);gap:8px;height:250px;margin-top:20px}
+.sales-axis{display:flex;flex-direction:column;justify-content:space-between;height:210px;padding-bottom:1px;color:#7c8578;font-size:9px;text-align:right;font-variant-numeric:tabular-nums}
+.sales-bars{display:flex;align-items:flex-end;justify-content:space-around;height:210px;padding:0 8px;border-bottom:1px solid #ced7c7;background:repeating-linear-gradient(to top,transparent 0,transparent 51px,#e9ede6 52px,#e9ede6 53px)}
+.sales-bar-group{position:relative;display:flex;align-items:flex-end;justify-content:center;width:28%;height:100%}
+.sales-bar-pair{display:flex;align-items:flex-end;justify-content:center;gap:6px;width:100%;height:100%}
+.sales-bar-pair i{display:block;width:min(24px,34%);height:var(--sales-height);border-radius:4px 4px 1px 1px;transform-origin:bottom;animation:sales-bar-rise .65s cubic-bezier(.22,.75,.25,1) backwards}
+.sales-primary{background:#245e4a}.sales-secondary{background:var(--lime);animation-delay:.08s!important}
+.sales-bar-group small{position:absolute;top:calc(100% + 10px);left:50%;color:#6f796f;font-size:9px;white-space:nowrap;transform:translateX(-50%)}
+.sales-bar-group small b{color:#d68d2c;font-weight:500}
+@keyframes sales-bar-rise{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@media(max-width:760px){.sales-column-chart{height:225px}.sales-axis,.sales-bars{height:185px}.sales-bar-group small{font-size:8px}}
+@media(prefers-reduced-motion:reduce){.sales-bar-pair i{animation:none}}
+
+/* Horizontal sales report fits the narrow dashboard column cleanly. */
+.sales-horizontal-chart{display:grid;gap:20px;margin-top:28px}
+.sales-horizontal-row{display:grid;grid-template-columns:72px minmax(0,1fr) 26px;align-items:center;gap:8px}
+.sales-horizontal-row label{color:#5d675f;font-size:9px;font-weight:500;white-space:nowrap}
+.sales-horizontal-row label b{color:#d68d2c;font-weight:600}
+.sales-track{display:block;width:100%;height:11px;overflow:hidden;border-radius:999px;background:#eef1ed}
+.sales-track i{display:block;width:var(--sales-width);height:100%;border-radius:inherit;background:#d4d8d3;transform-origin:left;animation:sales-width-in .65s cubic-bezier(.22,.75,.25,1) both}
+.sales-horizontal-row.featured .sales-track i{background:linear-gradient(90deg,#245e4a,#3c8b68)}
+.sales-horizontal-row>strong{color:#606a62;font-size:9px;font-weight:600;text-align:right}
+.sales-horizontal-row.featured>strong{color:#245e4a}
+.sales-horizontal-axis{display:flex;justify-content:space-between;margin:-10px 34px 0 80px;color:#8c958e;font-size:8px}
+@keyframes sales-width-in{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@media(max-width:760px){.sales-horizontal-row{grid-template-columns:92px minmax(0,1fr) 30px}.sales-horizontal-axis{margin-left:100px;margin-right:38px}}
+@media(prefers-reduced-motion:reduce){.sales-track i{animation:none}}
 .revenue h3>[data-naira]{font-size:34px;white-space:nowrap;font-variant-numeric:tabular-nums}
 .bar-pair{position:relative}.bar-tooltip{position:absolute;bottom:100%;left:50%;transform:translateX(-50%);z-index:5;display:none;background:#123e2b;color:white;padding:9px 11px;border-radius:8px;font-size:11px;line-height:1.5;white-space:nowrap;font-weight:400;pointer-events:none}
 .bar-pair:hover .bar-tooltip,.bar-pair:focus-visible .bar-tooltip{display:block}.bar-pair:focus-visible{outline:2px solid #719c38;outline-offset:3px}.naira-chart-scale{display:flex;justify-content:space-between;margin-top:9px;color:#657064;font-size:11px}.bar-pair:first-child .bar-tooltip{left:0;transform:none}.bar-pair:last-child .bar-tooltip{left:auto;right:0;transform:none}

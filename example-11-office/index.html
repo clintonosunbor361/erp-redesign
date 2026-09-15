@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Modern office CRM dashboard" />
+  <title>Atelier Office — CRM Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <div class="browser-chrome" aria-hidden="true">
+      <div class="traffic-lights"><i></i><i></i><i></i></div>
+      <div class="browser-nav"><span>‹</span><span>›</span></div>
+      <div class="address-bar"><svg viewBox="0 0 24 24"><path d="M7 10V8a5 5 0 0 1 10 0v2M6 10h12v10H6z"/></svg><span>atelieroffice.com</span><b>↻</b></div>
+      <div class="browser-actions"><span>⇧</span><span>＋</span><span>▢</span></div>
+    </div>
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#dashboard" aria-label="Atelier Office dashboard">
+        <span class="brand-mark"><svg viewBox="0 0 24 24"><path d="M5 4h14v16H5zM8 8h8M8 12h5M8 16h7" /></svg></span>
+        <span>Atelier Office</span>
+      </a>
+
+      <nav class="primary-nav" aria-label="Main navigation">
+        <a class="active" href="#dashboard"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></svg><span>Dashboard</span></a>
+        <a href="#clients"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20v-1a6 6 0 0 1 12 0v1m2-15a3 3 0 0 1 0 6m1 4a5 5 0 0 1 3 4v1"/></svg><span>Clients</span></a>
+        <a href="#orders"><svg viewBox="0 0 24 24"><path d="M5 7h14l2 14H3L5 7Z"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg><span>Orders</span><b>12</b></a>
+        <a href="#analytics"><svg viewBox="0 0 24 24"><path d="M4 20V10m5 10V4m6 16v-7m5 7V7"/></svg><span>Analytics</span></a>
+      </nav>
+
+      <div class="nav-separator"></div>
+      <p class="nav-label">WORKSPACE</p>
+      <nav class="secondary-nav" aria-label="Workspace navigation">
+        <a href="#settings"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a2 2 0 0 0 .4 2.2l.1.1-2.6 2.6-.1-.1a2 2 0 0 0-2.2-.4 2 2 0 0 0-1.2 1.8V21h-3.6v-.2A2 2 0 0 0 9 19a2 2 0 0 0-2.2.4l-.1.1-2.6-2.6.1-.1A2 2 0 0 0 4.6 15 2 2 0 0 0 3 13.8H3v-3.6h.2A2 2 0 0 0 5 9a2 2 0 0 0-.4-2.2l-.1-.1 2.6-2.6.1.1A2 2 0 0 0 9 4.6 2 2 0 0 0 10.2 3V3h3.6v.2A2 2 0 0 0 15 5a2 2 0 0 0 2.2-.4l.1-.1 2.6 2.6-.1.1a2 2 0 0 0-.4 2.2 2 2 0 0 0 1.8 1.2h.2v3.6h-.2A2 2 0 0 0 19.4 15Z"/></svg><span>Settings</span></a>
+        <a href="#team"><svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M2 20a6 6 0 0 1 12 0m1-5a5 5 0 0 1 7 5"/></svg><span>Team Space</span></a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="theme-row"><span><svg viewBox="0 0 24 24"><path d="M20 15.5A8 8 0 0 1 8.5 4 8 8 0 1 0 20 15.5Z"/></svg>Dark mode</span><button id="themeToggle" class="switch" type="button" role="switch" aria-checked="false" aria-label="Toggle dark mode"><i></i></button></div>
+        <button class="profile" type="button"><span class="avatar">DK</span><span><strong>Deji &amp; Kola</strong><small>office@dejiandkola.com</small></span><svg viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></button>
+      </div>
+    </aside>
+
+    <section class="workspace" id="dashboard">
+      <header class="topbar">
+        <button class="menu-button" id="menuButton" type="button" aria-label="Open navigation">☰</button>
+        <div class="greeting"><h1>Good morning, Admin <span>👋🏽</span></h1><p>Here’s what’s happening with your business today.</p></div>
+        <label class="search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/></svg><input id="searchInput" type="search" placeholder="Search clients, orders..."/><kbd>⌘ K</kbd></label>
+        <button class="icon-button" type="button" aria-label="Notifications"><svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9m-9 12h2"/></svg><i></i></button>
+      </header>
+
+      <div class="content">
+        <section class="kpi-grid" id="kpiGrid" aria-label="Business metrics"></section>
+
+        <section class="chart-grid">
+          <article class="card performance-card" id="analytics">
+            <div class="card-heading"><div><h2>Sales performance</h2><p>Revenue across the last seven months</p></div><select id="chartRange" aria-label="Chart range"><option>Last 7 months</option><option>Last 6 months</option></select></div>
+            <div class="line-chart-wrap"><div class="y-axis"><span>₦80m</span><span>₦60m</span><span>₦40m</span><span>₦20m</span><span>₦0</span></div><div class="line-chart" id="lineChart"></div></div>
+          </article>
+
+          <article class="card gauge-card">
+            <div class="card-heading"><div><h2>Order target</h2><p>Monthly completion</p></div><span class="trend-chip">+8.4%</span></div>
+            <div class="gauge" aria-label="Seventy eight percent of target complete"><div class="gauge-track"></div><div class="gauge-center"><strong>78%</strong><span>of target</span></div></div>
+            <div class="gauge-stats"><div><span>Completed</span><strong>468</strong></div><div><span>Target</span><strong>600</strong></div></div>
+          </article>
+        </section>
+
+        <section class="card table-card" id="orders">
+          <div class="card-heading table-heading"><div><h2>Recent orders</h2><p>Latest client orders and payment status</p></div><button type="button">View all orders <span>→</span></button></div>
+          <div class="table-wrap"><table><thead><tr><th>Client Name</th><th>Order ID</th><th>Number of Items</th><th>Amount Paid</th><th>Status</th><th>Date</th></tr></thead><tbody id="ordersBody"></tbody></table><p class="empty-state" id="emptyState" hidden>No orders match your search.</p></div>
+        </section>
+      </div>
+    </section>
+  </main>
+  <button class="backdrop" id="backdrop" type="button" aria-label="Close navigation" hidden></button>
+  <script src="app.js"></script>
+</body>
+</html>
