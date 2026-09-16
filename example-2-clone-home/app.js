@@ -1,12 +1,36 @@
+const dashboardData={moneyFlow:[['Jan',180000,120000],['Feb',210000,150000],['Mar',195000,135000],['Apr',240000,165000],['May',225000,160000],['Jun',260000,180000],['Jul',200000,100000]],previousNetIncome:435000,orders:{launched:233,ongoing:23,sold:226},returns:32000};
+dashboardData.income=dashboardData.moneyFlow.reduce((sum,row)=>sum+row[1],0);
+dashboardData.expenses=dashboardData.moneyFlow.reduce((sum,row)=>sum+row[2],0);
+dashboardData.netIncome=dashboardData.income-dashboardData.expenses;
+dashboardData.totalOrders=Object.values(dashboardData.orders).reduce((sum,value)=>sum+value,0);
+dashboardData.netChange=(dashboardData.netIncome-dashboardData.previousNetIncome)/dashboardData.previousNetIncome*100;
+if(new URLSearchParams(location.search).get('theme')==='blue'){
+ document.body.classList.add('theme-blue');
+ const revenueCard=document.querySelector('.dashboard-grid>.revenue');
+ if(revenueCard&&window.FinSetUI){
+  const legacyHtml=revenueCard.innerHTML;
+  const flowData=dashboardData.moneyFlow.map(row=>[row[0],row[1]/300000*100,row[2]/300000*100]);
+  const actionsHtml='<div class="money-legend"><span><i></i>Income</span><span><i></i>Expense</span></div><select aria-label="Money flow account"><option>All accounts</option></select><select aria-label="Money flow period"><option>This year</option></select>';
+  const flowHtml='<div class="money-flow-chart"><div class="money-axis"><span>₦300k</span><span>₦200k</span><span>₦100k</span><span>₦0</span></div><div class="money-plot"><div class="money-bars">'+flowData.map(row=>`<span><i style="--bar:${row[1]}%"></i><i style="--bar:${row[2]}%"></i></span>`).join('')+'</div><div class="money-months">'+flowData.map(row=>`<span>${row[0]}</span>`).join('')+'</div></div></div><div class="legacy-revenue-engine" hidden>'+legacyHtml+'</div>';
+  const shell=document.createElement('template');
+  shell.innerHTML=FinSetUI.ChartCard({title:'Money flow',className:'panel revenue money-flow',attributes:{id:'statistics'},actionsHtml,contentHtml:flowHtml});
+  revenueCard.replaceWith(shell.content.firstElementChild);
+ }
+ const incomeCard=document.querySelector('[data-detail="income"]')?.closest('.metric');
+ if(incomeCard){incomeCard.querySelector('[data-naira]').dataset.naira=dashboardData.netIncome;incomeCard.querySelector('small').innerHTML=`↗ +${dashboardData.netChange.toFixed(1)}% <i>vs previous period</i>`}
+ const ordersCard=document.querySelector('[data-detail="orders"]')?.closest('.metric');
+ if(ordersCard)ordersCard.querySelector('h2').textContent=dashboardData.totalOrders;
+}
 const products=[
   ["👕","Premium T-Shirt","Completed"],["♠","Playstation 5","Pending"],["♟","Hoodie Gonibong","Pending"],
   ["▣","iPhone 15 Pro Max","Completed"],["☕","Lotse","Completed"],["◉","Starbucks","Completed"],["👕","Tinek Detstar T-Shirt","Completed"]
 ];
 const heights=[[88,72],[58,83],[79,64],[73,54],[94,76],[84,69]];
+const transactionDetails=[['Jul 12, 2024','₦48,000','Apparel'],['Jul 12, 2024','₦42,000','Electronics'],['Jul 11, 2024','₦32,500','Apparel'],['Jul 10, 2024','₦58,000','Electronics'],['Jul 9, 2024','₦18,000','Food & Drink'],['Jul 8, 2024','₦12,500','Food & Drink'],['Jul 7, 2024','₦45,000','Apparel']];
 const list=document.querySelector("#transactionList");
 function renderTransactions(q=""){
   const filtered=products.filter(p=>p.join(" ").toLowerCase().includes(q.toLowerCase()));
-  list.innerHTML=filtered.slice(0,5).map(p=>`<div class="transaction"><span class="product-icon">${p[0]}</span><span class="transaction-copy"><strong>${p[1]}</strong><small>Jul 12th 2024</small></span><span class="transaction-status"><strong>${p[2]}</strong><small>0JWEJS7ISNC</small></span></div>`).join("")||'<p style="color:#888;font-size:11px">No matching transactions.</p>';
+  list.innerHTML=filtered.slice(0,5).map(p=>{const detail=transactionDetails[products.indexOf(p)];return `<div class="transaction"><span class="transaction-name"><i class="product-icon">${p[0]}</i><strong>${p[1]}</strong></span><strong class="transaction-amount">${detail[1]}</strong><span class="transaction-category">${detail[2]}</span><span class="transaction-date">${detail[0]}</span></div>`}).join("")||'<p style="color:#888;font-size:11px">No matching transactions.</p>';
 }
 document.querySelectorAll('[data-naira]').forEach(el => {
  const value=Number(el.dataset.naira);
@@ -60,16 +84,18 @@ renderTransactions();
 
 const kpiGroup=document.querySelector('.summary-grid');
 const kpiCards=[...kpiGroup.querySelectorAll('.kpi-card')];
-const defaultKpi=kpiCards[0];
+const defaultKpi=document.body.classList.contains('theme-blue')?null:kpiCards[0];
+const supportsKpiHover=window.matchMedia('(hover: hover) and (pointer: fine)');
 function highlightKpi(card=defaultKpi){
  kpiCards.forEach(kpi=>kpi.classList.toggle('is-highlighted',kpi===card));
 }
 kpiCards.forEach(card=>{
- card.addEventListener('pointerenter',()=>highlightKpi(card));
+ card.addEventListener('pointerenter',()=>{if(supportsKpiHover.matches)highlightKpi(card)});
  card.addEventListener('focusin',()=>highlightKpi(card));
 });
-kpiGroup.addEventListener('pointerleave',()=>highlightKpi());
+kpiGroup.addEventListener('pointerleave',()=>{if(supportsKpiHover.matches)highlightKpi()});
 kpiGroup.addEventListener('focusout',event=>{if(!kpiGroup.contains(event.relatedTarget))highlightKpi()});
+if(document.body.classList.contains('theme-blue'))highlightKpi();
 
 const sectionTooltip=document.createElement('div');
 sectionTooltip.className='sidebar-tooltip';
@@ -111,11 +137,11 @@ document.addEventListener('keydown',event=>{if(event.key==='Escape')hideSectionT
 
 const cardDetails=document.querySelector('#cardDetails');
 const detailCopy={
- income:['Net Income',`<p><strong>${formatNaira(193000)}</strong> net income, up 35% from last month.</p><p>The full view will show payment history and income sources.</p>`],
+ income:['Net Income',`<p><strong>${formatNaira(dashboardData.netIncome)}</strong> net income, up ${dashboardData.netChange.toFixed(1)}% from the previous period.</p><p>The full view will show payment history and income sources.</p>`],
  returns:['Total Return',`<p><strong>${formatNaira(32000)}</strong> in returns, down 24% from last month.</p><p>The full view will show returned orders, refund amounts, and return reasons.</p>`],
  orders:['Total Orders','<p><strong>482 orders</strong> placed this period.</p><p>The full view will let you filter orders by customer, product, and fulfilment status.</p>'],
- revenue:['Revenue',`<p><strong>${formatNaira(193000)}</strong> income and <strong>${formatNaira(156000)}</strong> expenses across the six illustrative periods.</p><p>The full report will provide period comparisons and a detailed revenue breakdown.</p>`],
- sales:['Total Sales Report','<p><strong>233</strong> products launched, <strong>23</strong> ongoing products, and <strong>482</strong> products sold.</p><p>The full report will show sales by product, category, and period.</p>'],
+ revenue:['Money flow',`<p><strong>${formatNaira(dashboardData.income)}</strong> income and <strong>${formatNaira(dashboardData.expenses)}</strong> expenses across seven months.</p><p>Net income is <strong>${formatNaira(dashboardData.netIncome)}</strong>.</p>`],
+ sales:['Total Sales Report',`<p><strong>${dashboardData.orders.launched}</strong> launched, <strong>${dashboardData.orders.ongoing}</strong> ongoing, and <strong>${dashboardData.orders.sold}</strong> sold.</p><p>These add up to <strong>${dashboardData.totalOrders}</strong> total orders.</p>`],
  transactions:['Transactions','<p>Review the recent transactions listed on this dashboard.</p><p>The full history will support date, payment-status, and customer filters.</p>']
 };
 document.querySelectorAll('[data-detail]').forEach(button=>button.addEventListener('click',()=>{

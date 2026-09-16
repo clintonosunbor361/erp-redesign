@@ -6,7 +6,9 @@
   <title>Siohioma Sales Dashboard</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="design-system/tokens.css" />
+  <link rel="stylesheet" href="design-system/components.css" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -44,7 +46,7 @@
 
       <div class="dashboard" id="overview">
         <div class="dashboard-head">
-          <div><h1>Dashboard</h1><p>Your sales, clients, and daily priorities in one place.</p></div>
+          <div><h1>Welcome back, Balikis!</h1><p>It is the best time to manage your finances</p></div>
           <div class="head-actions">
             <button id="exportPdf" class="export" type="button">⇩ Export PDF</button>
             <select id="range" aria-label="Reporting period"><option>January 2024 - May 2024</option><option>June 2024 - December 2024</option></select>
@@ -62,14 +64,9 @@
  </article>
           <article class="panel sales-report">
                   <div class="title"><h2>Total Sales Report</h2><button class="detail-arrow" type="button" data-detail="sales" aria-label="View total sales report details" title="View total sales report details"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18 18 6M7 6h11v11"/></svg></button></div>
-                  <div class="sales-horizontal-chart" aria-label="Total sales by product status">
-                    <div class="sales-horizontal-row"><label>Launched <b>(233)</b></label><span class="sales-track"><i style="--sales-width:48%"></i></span><strong>233</strong></div>
-                    <div class="sales-horizontal-row featured"><label>Sold <b>(482)</b></label><span class="sales-track"><i style="--sales-width:100%"></i></span><strong>482</strong></div>
-                    <div class="sales-horizontal-row"><label>Ongoing <b>(23)</b></label><span class="sales-track"><i style="--sales-width:12%"></i></span><strong>23</strong></div>
-                    <div class="sales-horizontal-axis" aria-hidden="true"><span>0</span><span>250</span><span>500</span></div>
-                  </div>
+                  <div class="sales-half-donut" role="img" aria-label="Total sales: 482"><svg viewBox="0 0 200 120" aria-hidden="true"><path class="sales-arc sales-arc-one" d="M20 100A80 80 0 0 1 60 30.7"/><path class="sales-arc sales-arc-two" d="M80.6 22.4A80 80 0 0 1 124.7 23.9"/><path class="sales-arc sales-arc-three" d="M144.7 33.7A80 80 0 0 1 180 100"/></svg><strong>482</strong><small>Total sales</small></div><div class="sales-breakdown" aria-label="Sales breakdown"><span><i></i>Launched <b>233</b></span><span><i></i>Ongoing <b>23</b></span><span><i></i>Sold <b>226</b></span></div>
                 </article>
-          <article class="panel transactions" id="transactions"><div class="title"><h2>Transaction</h2><button class="detail-arrow" type="button" data-detail="transactions" aria-label="View transaction details" title="View transaction details"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18 18 6M7 6h11v11"/></svg></button></div><div id="transactionList"></div></article>
+          <article class="panel transactions" id="transactions"><div class="title"><h2>Transaction</h2><button class="detail-arrow" type="button" data-detail="transactions" aria-label="View transaction details" title="View transaction details"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18 18 6M7 6h11v11"/></svg></button></div><div class="transaction-table-head"><span>Name</span><span>Amount</span><span>Category</span><span>Date</span></div><div id="transactionList"></div></article>
 
         </section>
       </div>
@@ -84,6 +81,10 @@
   </nav>
   <div id="toast" role="status">Choose “Save as PDF” in the print dialog.</div>
   <dialog id="cardDetails"><div class="detail-heading"><h2 id="detailTitle"></h2><button id="closeDetails" type="button" aria-label="Close details">&times;</button></div><div id="detailContent"></div></dialog>
+  <script src="../example-12/design-system/icons.js"></script>
+  <script src="../example-12/design-system/components.js"></script>
+  <script src="design-system/icons.js"></script>
+  <script src="design-system/components.js"></script>
   <script src="currency.js"></script>
   <script src="app.js"></script>
   <script src="revenue-chart.js"></script>

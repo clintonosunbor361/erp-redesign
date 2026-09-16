@@ -1,0 +1,58 @@
+/* Reuse the complete Example 12 design system and screen layout. */
+@import url("../example-12/design-system/tokens.css");
+@import url("../example-12/design-system/components.css");
+@import url("../example-12/dashboard.css");
+
+/* Black edition: only semantic palette roles change. */
+:root {
+  --color-canvas: #dedede;
+  --color-primary: #111111;
+  --color-primary-hover: #2a2a2a;
+  --color-soft: #f5f5f5;
+  --color-border: #dddddd;
+  --color-track: #ececec;
+  --color-focus: #11111130;
+  --color-shell-border: #ffffffb8;
+  --color-shell-shadow: #11111120;
+  --color-collapse-border: #d8d8d8;
+  --color-nav-hover: #e9e9e9;
+  --color-segmented-border: #d5d5d5;
+  --color-legend-expense: #b8b8b8;
+  --color-chart-expense: #b4b4b4;
+  --color-tooltip-border: #bcbcbc;
+  --color-table-heading: #262626;
+  --color-goal-label: #242424;
+  --color-modal-backdrop: #11111166;
+  --color-toast: #181818;
+  --color-navigation-backdrop: #00000066;
+  --color-budget-entertainment: #9d9d9d;
+  --color-budget-investments: #dedede;
+  --color-brand-soft: #d8d8d8;
+  --color-brand-accent: #111111;
+
+  --color-dark-surface: #1b1b1b;
+  --color-dark-sidebar: #151515;
+  --color-dark-border: #3a3a3a;
+  --color-dark-muted: #aaaaaa;
+  --color-dark-soft: #252525;
+  --color-dark-track: #343434;
+  --color-dark-ink: #f5f5f5;
+  --color-dark-canvas: #0d0d0d;
+  --color-dark-shell-border: #393939;
+  --color-dark-nav-hover: #292929;
+  --color-dark-table-divider: #333333;
+  --color-dark-table-heading: #ededed;
+  --color-dark-decimals: #969696;
+  --color-dark-goal-label: #e5e5e5;
+}
+
+/* Preserve legibility when the black accent sits on a dark surface. */
+body.dark {
+  --accent: #f1f1f1;
+  --accent-hover: #ffffff;
+}
+
+body.dark button.primary,
+body.dark .sidebar a.active {
+  color: #111111;
+}

@@ -204,3 +204,164 @@ html{scroll-behavior:smooth;scroll-padding-top:140px}
 .dashboard-grid .summary-grid .metric .currency-symbol{font-size:1em;font-weight:inherit;margin-right:0;vertical-align:baseline}
 
 #chartTotal .currency-symbol{font-size:1em;font-weight:inherit;margin-right:0}
+
+/* Design-system bridge: existing screen selectors consume semantic tokens. */
+:root{--green:var(--ds-primary);--lime:var(--ds-accent);--ink:var(--ds-ink);--muted:var(--ds-muted);--line:var(--ds-border);--soft:var(--ds-soft)}
+body{background:var(--ds-canvas);color:var(--ds-ink);font-family:var(--ds-font-family)}
+.app{border-radius:var(--ds-radius-shell);box-shadow:var(--ds-shadow-shell)}
+.panel,.metric,.update-card{border-radius:var(--ds-radius-card)}
+.panel,.metric{border-color:var(--ds-border);background:var(--ds-surface)}
+.search,.round,.add,.dashboard-head select{border-color:var(--ds-border-strong)}
+
+/* Blue token theme: identical screen and components, different semantic accents. */
+body.theme-blue{--ds-primary:#0a0a0a;--ds-primary-raised:#0a0a0a;--ds-primary-soft:#f5f5f5;--ds-accent:#0a0a0a;--ds-ink:#242424;--ds-muted:#6b6b6b;--ds-border:#dedede;--ds-border-strong:#c8c8c8;--ds-soft:#f5f5f5;--blue-neutral:#8b8b8b;--blue-neutral-light:#d4d4d4;--green:var(--ds-primary);--lime:var(--ds-accent);--ease-out:cubic-bezier(.23,1,.32,1);--ease-drawer:cubic-bezier(.32,.72,0,1);--ds-font-family:"Instrument Sans","Segoe UI",sans-serif}
+body.theme-blue .sidebar{background:#0a0a0a;color:#fff}
+body.theme-blue .sidebar .logo{color:#fff}
+body.theme-blue .sidebar nav a{color:#b7b7b7}
+body.theme-blue .sidebar nav a{width:100%;padding:0 14px;border-radius:10px}
+body.theme-blue .sidebar nav a i,body.theme-blue .sidebar nav a svg{color:#b7b7b7}
+body.theme-blue .sidebar nav a.active{color:#0a0a0a;background:#fff}
+body.theme-blue .sidebar nav a.active i,body.theme-blue .sidebar nav a.active svg{color:#0a0a0a}
+body.theme-blue .sidebar nav a.active:before{background:var(--ds-accent)}
+body.theme-blue .sidebar nav a.active:before{display:none}
+body.theme-blue .sidebar-toggle{border-color:#3a3a3a;color:#fff;background:#1b1b1b}
+body.theme-blue .sidebar .menu-label{color:#8d8d8d}
+body.theme-blue .sidebar .divider{background:#343434}
+body.theme-blue .sidebar .user{border-top-color:#343434;color:#fff}
+body.theme-blue .sidebar .user small{color:#8d8d8d}
+body.theme-blue .update-card.is-highlighted{background:var(--ds-primary-raised)}
+body.theme-blue .update-card h2 b,body.theme-blue .logo span{color:#fff}
+body.theme-blue .sidebar nav a.active i{color:#0a0a0a}
+body.theme-blue .sidebar nav a.active:before,body.theme-blue .sidebar nav a em{background:var(--ds-accent)}
+body.theme-blue .sidebar nav a em{color:#111111}
+body.theme-blue .month-bar.revenue-bar,body.theme-blue .sales-horizontal-row.featured .sales-track i{fill:#0a0a0a;background:#0a0a0a}
+body.theme-blue .month-bar.expense-bar,body.theme-blue .legend .expenses,body.theme-blue .sales-track i{fill:var(--blue-neutral);background:var(--blue-neutral)}
+body.theme-blue .profit-line{stroke:#475467}
+body.theme-blue .profit-dot{stroke:#475467}
+body.theme-blue #revenueTooltip,body.theme-blue .bar-tooltip{border-color:#3a3a3a;background:#0a0a0a}
+body.theme-blue .export,body.theme-blue #customRevenueRange button{border-color:var(--ds-primary);background:var(--ds-primary)}
+body.theme-blue .kpi-card.is-highlighted{border-color:#0a0a0a;background:var(--ds-primary-raised);color:#fff}
+
+/* Fixed 1440 × 1024 presentation for the blue edition. */
+body.theme-blue{width:auto;height:100vh;padding:52px 55px;overflow-x:hidden;overflow-y:auto;background:#ededed}
+body.theme-blue .app{width:1330px;max-width:100%;height:920px;min-height:0}
+body.theme-blue .main{height:100%;overflow-x:hidden;overflow-y:auto}
+body.theme-blue header{height:64px}
+body.theme-blue .dashboard{height:calc(100% - 64px);padding:12px 18px 16px;overflow:visible}
+body.theme-blue .dashboard-head{margin-bottom:10px}
+body.theme-blue .dashboard-head h1{font-size:20px}
+body.theme-blue .layout.dashboard-grid,body.theme-blue .dashboard-grid>.summary-grid{gap:10px}
+body.theme-blue .layout.dashboard-grid{grid-template-rows:150px 316px 222px}
+body.theme-blue .dashboard-grid .summary-grid>.metric,body.theme-blue .dashboard-grid .summary-grid>.update-card{min-height:150px;padding:16px 18px}
+body.theme-blue .dashboard-grid .summary-grid>.metric{grid-template-rows:30px minmax(39px,1fr) auto}
+body.theme-blue .dashboard-grid .summary-grid>.metric>div{min-height:30px}
+body.theme-blue .dashboard-grid .summary-grid>.metric h2{margin:5px 0 7px;font-size:29px}
+body.theme-blue .dashboard-grid .summary-grid>.metric>small{min-height:17px;font-size:10px}
+body.theme-blue .dashboard-grid>.revenue{padding:15px 18px}
+body.theme-blue .dashboard-grid>.revenue{display:grid;grid-template-rows:auto auto auto minmax(0,1fr) auto;min-height:0;overflow:hidden}
+body.theme-blue .dashboard-grid>.revenue>.card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
+body.theme-blue .dashboard-grid>.revenue{border:1px solid #e0dfe4;border-radius:25px;background:#fff}
+body.theme-blue .dashboard-grid>.revenue>.card-head{align-items:center;gap:10px}
+body.theme-blue .dashboard-grid>.revenue>.card-head>h2{margin:0;font-size:14px;font-weight:500;letter-spacing:-.3px}
+body.theme-blue .dashboard-grid>.revenue>.revenue-insight{margin:4px 0 0}
+body.theme-blue .dashboard-grid>.revenue>.card-head .revenue-controls{display:flex;align-items:center;gap:7px}
+body.theme-blue .dashboard-grid>.revenue>.card-head select{min-height:25px;height:25px;padding:3px 9px;border:1px solid #e0dfe4;border-radius:20px;background:#fff;font-size:9px}
+body.theme-blue .dashboard-grid>.revenue>.card-head .detail-arrow{display:grid;place-items:center;width:34px;height:34px;min-height:34px;padding:9px;border:1px solid #e0dfe4;border-radius:50%;background:#fff;color:#131318}
+body.theme-blue .dashboard-grid>.revenue>.card-head .detail-arrow svg{width:15px;height:15px}
+body.theme-blue .revenue-overview{margin:7px 0 8px}
+body.theme-blue #chartTotal{font-size:29px}
+body.theme-blue .revenue-chart-shell{height:100%;min-height:0;margin-top:0}
+body.theme-blue .revenue-scroll,body.theme-blue #revenueChart.premium-chart{height:100%;min-height:0}
+body.theme-blue #revenueChart.premium-chart{min-width:0}
+body.theme-blue #revenueSvg,body.theme-blue #revenueYAxis{height:calc(100% - 26px);min-height:0}
+body.theme-blue #revenueMonthTargets{inset:0 0 26px}
+body.theme-blue #revenueMonthLabels{bottom:0}
+body.theme-blue .month-label{padding-top:5px;font-size:9px}
+body.theme-blue .revenue-footer{margin-top:3px;padding-top:6px}
+body.theme-blue .revenue-scroll{overflow:visible;padding-bottom:0}
+body.theme-blue .dashboard-grid>.sales-report{padding:15px 18px}
+body.theme-blue .sales-horizontal-chart{gap:13px;margin-top:18px}
+body.theme-blue .dashboard-grid>.transactions{min-height:0;padding:8px 18px;overflow:hidden}
+body.theme-blue .dashboard-grid>.transactions>.title{margin-bottom:1px}
+body.theme-blue .dashboard-grid>.transactions .transaction{min-height:35px;padding:2px 0}
+body.theme-blue .product-icon{width:27px;height:27px;font-size:14px}
+body.theme-blue .dashboard-grid>.transactions .transaction-copy,body.theme-blue .dashboard-grid>.transactions .transaction-status{gap:10px}
+body.theme-blue .dashboard-grid>.transactions .transaction-copy strong,body.theme-blue .dashboard-grid>.transactions .transaction-status strong{font-size:10px}
+body.theme-blue .dashboard-grid>.transactions .transaction-copy small,body.theme-blue .dashboard-grid>.transactions .transaction-status small{font-size:9px}
+body.theme-blue .sidebar nav a.active i,body.theme-blue .sidebar nav a.active svg{color:#0a0a0a}
+body.theme-blue .dashboard-grid>.money-flow{display:block;padding:17px 16px 14px;overflow:hidden}
+body.theme-blue .money-flow>.card-head{display:flex;align-items:center}
+body.theme-blue .money-flow>.card-head>h2{margin-right:auto;font-size:14px;font-weight:600}
+body.theme-blue .money-flow>.card-head .revenue-controls{display:flex;align-items:center;gap:10px}
+body.theme-blue .money-flow>.card-head select{width:118px;height:32px;min-height:32px;padding:0 11px;border:1px solid #dedede;border-radius:12px;background:#fff;font-size:9px}
+body.theme-blue .money-legend{display:flex;align-items:center;gap:12px;margin-right:2px;font-size:9px}
+body.theme-blue .money-legend span{display:flex;align-items:center;gap:5px}
+body.theme-blue .money-legend i{width:8px;height:8px;border-radius:50%;background:#0a0a0a}
+body.theme-blue .money-legend span+span i{background:var(--blue-neutral)}
+body.theme-blue .money-flow-chart{display:grid;grid-template-columns:48px minmax(0,1fr);height:235px;margin-top:8px}
+body.theme-blue .money-axis{display:flex;flex-direction:column;justify-content:space-between;padding:2px 7px 27px 0;color:#887a84;font-size:8px}
+body.theme-blue .money-plot{display:grid;grid-template-rows:minmax(0,1fr) 25px;background:repeating-linear-gradient(to top,transparent 0,transparent 47px,#ececec 48px)}
+body.theme-blue .money-bars{display:flex;align-items:flex-end;justify-content:space-around;border-bottom:1px solid #ddd}
+body.theme-blue .money-bars>span{display:flex;align-items:flex-end;gap:3px;width:43px;height:100%}
+body.theme-blue .money-bars i{display:block;width:20px;height:var(--bar);border-radius:8px 8px 0 0;background:#0a0a0a}
+body.theme-blue .money-bars i+i{background:var(--blue-neutral)}
+body.theme-blue .money-months{display:flex;align-items:end;justify-content:space-around;color:#887a84;font-size:9px}
+.transaction-table-head,.dashboard-grid>.transactions .transaction{display:grid;grid-template-columns:minmax(0,1fr) 125px 135px 105px;align-items:center;gap:14px}
+.transaction-table-head{height:34px;margin-top:8px;padding:0 8px;border-radius:10px;background:#f5f5f5;color:#777;font-size:9px;font-weight:500;text-transform:uppercase}
+body.theme-blue .transaction-table-head{border:1px solid #e4e7ec;background:#f2f4f7;color:#475467}
+
+/* Monochrome Ledger typography: clear hierarchy without color dependence. */
+body.theme-blue,body.theme-blue button,body.theme-blue input,body.theme-blue select{font-family:"Instrument Sans","Segoe UI",sans-serif;letter-spacing:-.1px}
+body.theme-blue{color:#242424;font-size:13px;font-weight:400}
+body.theme-blue h1{color:#242424;font-size:24px;font-weight:600;letter-spacing:-.35px}
+body.theme-blue h2,body.theme-blue .title h2,body.theme-blue .card-head h2{color:#242424;font-size:14px;font-weight:600}
+body.theme-blue p,body.theme-blue label,body.theme-blue td,body.theme-blue .sidebar nav a,body.theme-blue .transaction-name strong{font-size:13px;font-weight:400}
+body.theme-blue small,body.theme-blue th,body.theme-blue .transaction-table-head,body.theme-blue .transaction-date,body.theme-blue .transaction-category,body.theme-blue .month-label,body.theme-blue .money-months,body.theme-blue .money-axis,body.theme-blue .money-legend,body.theme-blue .sales-breakdown span{font-size:12px;font-weight:400}
+body.theme-blue .metric h2,body.theme-blue #chartTotal,body.theme-blue .sales-half-donut strong{font-size:24px;font-weight:500}
+body.theme-blue .dashboard-head p,body.theme-blue .revenue-insight,body.theme-blue .metric small,body.theme-blue .transaction-date,body.theme-blue .transaction-category{color:#6b6b6b}
+body.theme-blue .month-label,body.theme-blue .money-months,body.theme-blue .money-axis,body.theme-blue .sales-breakdown span,body.theme-blue .sidebar .menu-label,body.theme-blue .sidebar .user small{color:#929292}
+body.theme-blue .sidebar nav a{border-radius:8px}
+body.theme-blue .panel,body.theme-blue .metric,body.theme-blue .update-card,body.theme-blue .card{border-radius:16px}
+body.theme-blue .add,body.theme-blue .export,body.theme-blue .dashboard-head select,body.theme-blue .revenue-controls select,body.theme-blue .table-see-all{border-radius:999px}
+
+/* Blue edition typography: one family, with the original KPI geometry retained. */
+body.theme-blue .kpi-card{border-radius:18px;font-family:inherit;letter-spacing:-.15px}
+body.theme-blue .kpi-card.metric>div p{font-family:inherit;font-size:13px;font-weight:600;letter-spacing:-.15px}
+body.theme-blue .kpi-card.metric h2{font-family:inherit;font-size:29px;font-weight:500;letter-spacing:-.5px}
+body.theme-blue .kpi-card.metric>small{font-family:inherit;font-size:10px;font-weight:400;letter-spacing:-.15px}
+body.theme-blue .update-card p{font-family:inherit;font-size:11px;font-weight:600;letter-spacing:-.15px}
+body.theme-blue .update-card>small,body.theme-blue .update-card a{font-family:inherit;font-size:9px;letter-spacing:-.15px}
+body.theme-blue .update-card h2{font-family:inherit;font-size:14px;font-weight:400;letter-spacing:-.15px}
+.dashboard-grid>.transactions .transaction{padding:7px 8px}
+.transaction-name{display:flex;align-items:center;gap:9px;min-width:0}.transaction-name strong{overflow:hidden;font-size:11px;font-weight:500;text-overflow:ellipsis;white-space:nowrap}
+.transaction-date,.transaction-category{color:#777;font-size:10px}.transaction-amount{font-size:11px;font-weight:600}.transaction-category{width:max-content;padding:4px 7px;border-radius:7px;background:#f4f4f4}
+@media(max-width:760px){.transaction-table-head,.dashboard-grid>.transactions .transaction{grid-template-columns:minmax(0,1fr) 92px 82px}.transaction-table-head span:nth-child(3),.transaction-category{display:none}}
+.sales-half-donut{position:relative;display:grid;place-items:center;height:155px;margin-top:12px;overflow:hidden}
+.sales-half-donut svg{position:absolute;top:0;width:210px;height:126px;overflow:visible}
+.sales-arc{fill:none;stroke-width:30;stroke-linecap:round}
+.sales-arc-one{stroke:#111}.sales-arc-two{stroke:#6b6b6b}.sales-arc-three{stroke:#bdbdbd}
+.sales-half-donut strong{position:absolute;top:78px;font-size:34px;font-weight:500;letter-spacing:-1px}
+.sales-half-donut small{position:absolute;top:120px;color:#777;font-size:9px}
+.sales-breakdown{display:grid;gap:7px;margin-top:2px}.sales-breakdown span{display:grid;grid-template-columns:8px 1fr auto;align-items:center;gap:7px;color:#666;font-size:9px}.sales-breakdown i{width:8px;height:8px;border-radius:50%;background:#111}.sales-breakdown span:nth-child(2) i{background:#6b6b6b}.sales-breakdown span:nth-child(3) i{background:#bdbdbd}.sales-breakdown b{color:#222;font-size:10px;font-weight:600}
+body.theme-blue .sales-arc-one{stroke:#0a0a0a}body.theme-blue .sales-arc-two{stroke:var(--blue-neutral)}body.theme-blue .sales-arc-three{stroke:var(--blue-neutral-light)}
+body.theme-blue .sales-breakdown i{background:#0a0a0a}body.theme-blue .sales-breakdown span:nth-child(2) i{background:var(--blue-neutral)}body.theme-blue .sales-breakdown span:nth-child(3) i{background:var(--blue-neutral-light)}
+
+/* Blue interaction polish: quick feedback, no decorative movement on frequent actions. */
+body.theme-blue .sidebar nav a{transform:none;transition:background-color 160ms ease,color 160ms ease}
+body.theme-blue .dashboard-grid .kpi-card{transform:none;transition:background-color 180ms ease,color 180ms ease,border-color 180ms ease,box-shadow 180ms ease}
+body.theme-blue .dashboard-grid .kpi-card.is-highlighted{transform:none;box-shadow:0 10px 24px rgba(16,24,40,.14)}
+body.theme-blue .dashboard-grid .kpi-card:focus-within{outline:3px solid rgba(10,10,10,.2);outline-offset:2px}
+body.theme-blue .detail-arrow:focus-visible,body.theme-blue .bar-pair:focus-visible,body.theme-blue .month-target:focus-visible,body.theme-blue .sidebar nav a:focus-visible,body.theme-blue .sidebar-toggle:focus-visible{outline:2px solid #0a0a0a;outline-offset:3px}
+body.theme-blue .up,body.theme-blue .down{color:#5f5f5f}
+body.theme-blue .update-card p span{background:#fff;box-shadow:0 0 0 3px #ffffff24}
+body.theme-blue .update-card>small,body.theme-blue .update-card>a{color:#cfcfcf}
+body.theme-blue .sidebar nav a em{color:#0a0a0a;background:#fff}
+body.theme-blue .sidebar .user>span{color:#0a0a0a;background:#fff}
+body.theme-blue .product-icon{filter:grayscale(1)}
+body.theme-blue .transaction-category{color:#505050;background:#f1f1f1}
+body.theme-blue .detail-arrow{transition:background-color 160ms ease,border-color 160ms ease,color 160ms ease,transform 140ms var(--ease-out)}
+body.theme-blue button,body.theme-blue [role="button"]{transition-duration:160ms}
+body.theme-blue button:active,body.theme-blue [role="button"]:active{transform:scale(.97)}
+body.theme-blue .drawer-backdrop:not([hidden]){background:rgba(16,24,40,.48)}
+@media(hover:hover) and (pointer:fine){body.theme-blue .sidebar nav a:hover{transform:none;background:rgba(255,255,255,.07);color:#fff}body.theme-blue .dashboard-grid .detail-arrow:hover{transform:none;border-color:#cbd5e1;background:#f8fafc}}
+@media(prefers-reduced-motion:reduce){body.theme-blue .sidebar nav a,body.theme-blue .dashboard-grid .kpi-card,body.theme-blue .detail-arrow,body.theme-blue button,body.theme-blue [role="button"]{transition:none}body.theme-blue button:active,body.theme-blue [role="button"]:active{transform:none}}
