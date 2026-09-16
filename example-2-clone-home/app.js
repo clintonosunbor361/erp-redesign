@@ -6,6 +6,39 @@ dashboardData.totalOrders=Object.values(dashboardData.orders).reduce((sum,value)
 dashboardData.netChange=(dashboardData.netIncome-dashboardData.previousNetIncome)/dashboardData.previousNetIncome*100;
 if(new URLSearchParams(location.search).get('theme')==='blue'){
  document.body.classList.add('theme-blue');
+ const navigation=document.querySelector('.sidebar nav[aria-label="Fashion CRM"]');
+ const sidebarItems=[
+  ['#overview','Dashboard'],
+  ['#orders','Orders'],
+  ['#clients','Customers'],
+  ['#collections','Inventory'],
+  ['#reports','Analytics']
+ ].map(([href,label])=>{
+  const link=navigation.querySelector(`a[href="${href}"]`);
+  link.querySelector('.nav-text').textContent=label;
+  link.setAttribute('aria-label',label);
+  link.title=label;
+  if(label==='Inventory'){
+   link.href='#inventory';
+   link.querySelector('.nav-icon').innerHTML='<path d="m12 3 9 5v9l-9 5-9-5V8l9-5Zm-9 5 9 5 9-5M12 13v9M7.5 5.5l9 5"/>';
+  }
+  if(label==='Analytics')link.href='#statistics';
+  return link;
+ });
+ navigation.replaceChildren(...sidebarItems);
+ const workspaceNavigation=document.querySelector('.sidebar nav[aria-label="Workspace settings"]');
+ const teamLink=workspaceNavigation.querySelector('a[href="#security"]');
+ teamLink.querySelector('.nav-text').textContent='Team space';
+ teamLink.setAttribute('aria-label','Team space');
+ teamLink.title='Team space';
+ teamLink.querySelector('.nav-icon').innerHTML=navigation.querySelector('a[href="#clients"] .nav-icon').innerHTML;
+ const sidebarFooter=document.createElement('div');
+ sidebarFooter.className='sidebar-footer';
+ sidebarFooter.append(workspaceNavigation);
+ sidebarFooter.insertAdjacentHTML('beforeend','<div class="sidebar-profile" role="group" aria-label="Deji&amp;Kola, CEO" title="Deji&amp;Kola · CEO"><span class="sidebar-avatar" aria-hidden="true">DK</span><div class="sidebar-profile-copy"><strong>Deji&amp;Kola</strong><small>CEO</small></div></div>');
+ document.querySelector('.sidebar').append(sidebarFooter);
+ document.querySelector('.sidebar .divider').remove();
+ document.querySelector('.sidebar .menu-label').remove();
  const revenueCard=document.querySelector('.dashboard-grid>.revenue');
  if(revenueCard&&window.FinSetUI){
   const legacyHtml=revenueCard.innerHTML;
@@ -20,6 +53,16 @@ if(new URLSearchParams(location.search).get('theme')==='blue'){
  if(incomeCard){incomeCard.querySelector('[data-naira]').dataset.naira=dashboardData.netIncome;incomeCard.querySelector('small').innerHTML=`↗ +${dashboardData.netChange.toFixed(1)}% <i>vs previous period</i>`}
  const ordersCard=document.querySelector('[data-detail="orders"]')?.closest('.metric');
  if(ordersCard)ordersCard.querySelector('h2').textContent=dashboardData.totalOrders;
+ [['income','wallet'],['returns','return'],['orders','bag']].forEach(([key,icon])=>{
+  const card=document.querySelector(`[data-detail="${key}"]`)?.closest('.metric');
+  if(!card)return;
+  card.dataset.kpi=key;
+  const mark=document.createElement('span');
+  mark.className='kpi-icon';
+  mark.setAttribute('aria-hidden','true');
+  mark.innerHTML=FinSetUI.Icon(icon);
+  card.querySelector('p').prepend(mark);
+ });
 }
 const products=[
   ["👕","Premium T-Shirt","Completed"],["♠","Playstation 5","Pending"],["♟","Hoodie Gonibong","Pending"],
@@ -30,7 +73,7 @@ const transactionDetails=[['Jul 12, 2024','₦48,000','Apparel'],['Jul 12, 2024'
 const list=document.querySelector("#transactionList");
 function renderTransactions(q=""){
   const filtered=products.filter(p=>p.join(" ").toLowerCase().includes(q.toLowerCase()));
-  list.innerHTML=filtered.slice(0,5).map(p=>{const detail=transactionDetails[products.indexOf(p)];return `<div class="transaction"><span class="transaction-name"><i class="product-icon">${p[0]}</i><strong>${p[1]}</strong></span><strong class="transaction-amount">${detail[1]}</strong><span class="transaction-category">${detail[2]}</span><span class="transaction-date">${detail[0]}</span></div>`}).join("")||'<p style="color:#888;font-size:11px">No matching transactions.</p>';
+  list.innerHTML=filtered.slice(0,5).map(p=>{const detail=transactionDetails[products.indexOf(p)];const status=document.body.classList.contains('theme-blue')?SiohiomaUI.StatusBadge({label:p[2]}):'';return `<div class="transaction"><span class="transaction-name"><i class="product-icon">${p[0]}</i><strong>${p[1]}</strong>${status}</span><strong class="transaction-amount">${detail[1]}</strong><span class="transaction-category">${detail[2]}</span><span class="transaction-date">${detail[0]}</span></div>`}).join("")||'<p style="color:#888;font-size:11px">No matching transactions.</p>';
 }
 document.querySelectorAll('[data-naira]').forEach(el => {
  const value=Number(el.dataset.naira);
