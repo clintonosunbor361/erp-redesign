@@ -1,0 +1,5 @@
+/* Original dashboard artwork; intentionally separate from UI structure. */
+window.FinSetAssets = {
+  "brand": "<svg class=\"brand-mark\" viewBox=\"0 0 44 44\" aria-hidden=\"true\"><circle cx=\"22\" cy=\"22\" r=\"22\" fill=\"var(--color-brand-ink)\"/><rect x=\"11\" y=\"10\" width=\"22\" height=\"7\" rx=\"3.5\" fill=\"var(--color-white)\"/><rect x=\"11\" y=\"20\" width=\"15\" height=\"7\" rx=\"3.5\" fill=\"var(--color-brand-soft)\"/><rect x=\"11\" y=\"20\" width=\"7\" height=\"15\" rx=\"3.5\" fill=\"var(--color-brand-accent)\"/></svg>",
+  "avatar": "<svg viewBox=\"0 0 40 40\"><circle cx=\"20\" cy=\"20\" r=\"20\" fill=\"var(--color-avatar-bg)\"/><path d=\"M10 24Q5 6 20 5q15 1 10 23\" fill=\"var(--color-avatar-hair-shadow)\"/><path d=\"M8 40q-1-13 12-13t12 13\" fill=\"var(--color-avatar-clothing)\"/><path d=\"M15 24h10v8H15\" fill=\"var(--color-avatar-neck)\"/><ellipse cx=\"20\" cy=\"17\" rx=\"8\" ry=\"10\" fill=\"var(--color-avatar-face)\"/><path d=\"M12 17q-2-12 12-10l5 8q-8-1-10-6-1 7-7 8\" fill=\"var(--color-avatar-hair)\"/><path d=\"M17 21q3 3 6 0\" fill=\"none\" stroke=\"var(--color-avatar-mouth)\" stroke-linecap=\"round\"/></svg>"
+};

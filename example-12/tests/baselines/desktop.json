@@ -1,0 +1,662 @@
+{
+  ".app": [
+    {
+      "x": 32,
+      "y": 80,
+      "width": 1136,
+      "height": 780.578125,
+      "font": "16px / 24px Poppins, Arial, sans-serif",
+      "fontSize": "16px",
+      "borderRadius": "36px",
+      "background": "rgb(255, 255, 255)",
+      "padding": "0px",
+      "gap": "normal"
+    }
+  ],
+  ".sidebar": [
+    {
+      "x": 33,
+      "y": 81,
+      "width": 195,
+      "height": 778.578125,
+      "font": "16px / 24px Poppins, Arial, sans-serif",
+      "fontSize": "16px",
+      "borderRadius": "0px",
+      "background": "rgb(247, 244, 255)",
+      "padding": "18px 17px",
+      "gap": "normal"
+    }
+  ],
+  "main": [
+    {
+      "x": 228,
+      "y": 81,
+      "width": 939,
+      "height": 778.578125,
+      "font": "16px / 24px Poppins, Arial, sans-serif",
+      "fontSize": "16px",
+      "borderRadius": "0px",
+      "background": "rgba(0, 0, 0, 0)",
+      "padding": "18px",
+      "gap": "normal"
+    }
+  ],
+  "h1": [
+    {
+      "x": 246,
+      "y": 99,
+      "width": 277.328125,
+      "height": 31.1875,
+      "font": "500 24px / 31.2px Poppins, Arial, sans-serif",
+      "fontSize": "24px",
+      "borderRadius": "0px",
+      "background": "rgba(0, 0, 0, 0)",
+      "padding": "0px",
+      "gap": "normal"
+    }
+  ],
+  ".kpi": [
+    {
+      "x": 246,
+      "y": 219.6875,
+      "width": 217.5,
+      "height": 147.390625,
+      "font": "16px / 24px Poppins, Arial, sans-serif",
+      "fontSize": "16px",
+      "borderRadius": "25px",
+      "background": "rgba(0, 0, 0, 0)",
+      "padding": "12px 16px 16px",
+      "gap": "normal"
+    },
+    {
+      "x": 474.5,
+      "y": 219.6875,
+      "width": 217.5,
+      "height": 147.390625,
+      "font": "16px / 24px Poppins, Arial, sans-serif",
+      "fontSize": "16px",
+      "borderRadius": "25px",
+      "background": "rgba(0, 0, 0, 0)",
+      "padding": "12px 16px 16px",
+      "gap": "normal"
+    },
+    {
+      "x": 703,
+      "y": 219.6875,
+      "width": 217.5,
+      "height": 147.390625,
+      "font": "16px / 24px Poppins, Arial, sans-serif",
+      "fontSize": "16px",
+      "borderRadius": "25px",
+      "background": "rgba(0, 0, 0, 0)",
+      "padding": "12px 16px 16px",
+      "gap": "normal"
+    },
+    {
+      "x": 931.5,
+      "y": 219.6875,
+      "width": 217.5,
+      "height": 147.390625,
+      "font": "16px / 24px Poppins, Arial, sans-serif",
+      "fontSize": "16px",
+      "borderRadius": "25px",
+      "background": "rgba(0, 0, 0, 0)",
+      "padding": "12px 16px 16px",
+      "gap": "normal"
+    }
+  ],
+  ".card": [
+    {
+      "x": 246,
+      "y": 379.078125,
+      "width": 592,
+      "height": 226,
+      "font": "16px / 24px Poppins, Arial, sans-serif",
+      "fontSize": "16px",
+      "borderRadius": "25px",
+      "background": "rgb(255, 255, 255)",
+      "padding": "16px",
+      "gap": "normal"
+    },
+    {
+      "x": 850,
+      "y": 379.078125,
+      "width": 299,
+      "height": 226,
+      "font": "16px / 24px Poppins, Arial, sans-serif",
+      "fontSize": "16px",
+      "borderRadius": "25px",
+      "background": "rgb(255, 255, 255)",
+      "padding": "16px",
+      "gap": "normal"
+    },
+    {
+      "x": 246,
+      "y": 617.078125,
+      "width": 592,
+      "height": 224.5,
+      "font": "16px / 24px Poppins, Arial, sans-serif",
+      "fontSize": "16px",
+      "borderRadius": "25px",
+      "background": "rgb(255, 255, 255)",
+      "padding": "16px 16px 10px",
+      "gap": "normal"
+    },
+    {
+      "x": 850,
+      "y": 617.078125,
+      "width": 299,
+      "height": 224.5,
+      "font": "16px / 24px Poppins, Arial, sans-serif",
+      "fontSize": "16px",
+      "borderRadius": "25px",
+      "background": "rgb(255, 255, 255)",
+      "padding": "16px",
+      "gap": "normal"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0,
+      "font": "16px / 24px Poppins, Arial, sans-serif",
+      "fontSize": "16px",
+      "borderRadius": "25px",
+      "background": "rgb(255, 255, 255)",
+      "padding": "16px",
+      "gap": "normal"
+    }
+  ],
+  ".round": [
+    {
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0,
+      "font": "16px / 24px Poppins, Arial, sans-serif",
+      "fontSize": "16px",
+      "borderRadius": "50%",
+      "background": "rgb(255, 255, 255)",
+      "padding": "9px",
+      "gap": "7px"
+    },
+    {
+      "x": 885,
+      "y": 103.84375,
+      "width": 40,
+      "height": 40,
+      "font": "16px / 24px Poppins, Arial, sans-serif",
+      "fontSize": "16px",
+      "borderRadius": "50%",
+      "background": "rgb(255, 255, 255)",
+      "padding": "9px",
+      "gap": "7px"
+    },
+    {
+      "x": 933,
+      "y": 103.84375,
+      "width": 40,
+      "height": 40,
+      "font": "16px / 24px Poppins, Arial, sans-serif",
+      "fontSize": "16px",
+      "borderRadius": "50%",
+      "background": "rgb(255, 255, 255)",
+      "padding": "9px",
+      "gap": "7px"
+    },
+    {
+      "x": 246,
+      "y": 167.6875,
+      "width": 39,
+      "height": 39,
+      "font": "16px / 24px Poppins, Arial, sans-serif",
+      "fontSize": "16px",
+      "borderRadius": "50%",
+      "background": "rgb(255, 255, 255)",
+      "padding": "9px",
+      "gap": "normal"
+    },
+    {
+      "x": 421.5,
+      "y": 223.6875,
+      "width": 37,
+      "height": 37,
+      "font": "16px / 24px Poppins, Arial, sans-serif",
+      "fontSize": "16px",
+      "borderRadius": "50%",
+      "background": "rgb(255, 255, 255)",
+      "padding": "10px",
+      "gap": "7px"
+    },
+    {
+      "x": 650,
+      "y": 223.6875,
+      "width": 37,
+      "height": 37,
+      "font": "16px / 24px Poppins, Arial, sans-serif",
+      "fontSize": "16px",
+      "borderRadius": "50%",
+      "background": "rgb(255, 255, 255)",
+      "padding": "10px",
+      "gap": "7px"
+    },
+    {
+      "x": 878.5,
+      "y": 223.6875,
+      "width": 37,
+      "height": 37,
+      "font": "16px / 24px Poppins, Arial, sans-serif",
+      "fontSize": "16px",
+      "borderRadius": "50%",
+      "background": "rgb(255, 255, 255)",
+      "padding": "10px",
+      "gap": "7px"
+    },
+    {
+      "x": 1107,
+      "y": 223.6875,
+      "width": 37,
+      "height": 37,
+      "font": "16px / 24px Poppins, Arial, sans-serif",
+      "fontSize": "16px",
+      "borderRadius": "50%",
+      "background": "rgb(255, 255, 255)",
+      "padding": "10px",
+      "gap": "7px"
+    },
+    {
+      "x": 1110,
+      "y": 384.078125,
+      "width": 34,
+      "height": 34,
+      "font": "16px / 24px Poppins, Arial, sans-serif",
+      "fontSize": "16px",
+      "borderRadius": "50%",
+      "background": "rgb(255, 255, 255)",
+      "padding": "9px",
+      "gap": "7px"
+    },
+    {
+      "x": 1110,
+      "y": 622.078125,
+      "width": 34,
+      "height": 34,
+      "font": "16px / 24px Poppins, Arial, sans-serif",
+      "fontSize": "16px",
+      "borderRadius": "50%",
+      "background": "rgb(255, 255, 255)",
+      "padding": "9px",
+      "gap": "7px"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0,
+      "font": "16px / 24px Poppins, Arial, sans-serif",
+      "fontSize": "16px",
+      "borderRadius": "50%",
+      "background": "rgb(255, 255, 255)",
+      "padding": "9px",
+      "gap": "7px"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0,
+      "font": "16px / 24px Poppins, Arial, sans-serif",
+      "fontSize": "16px",
+      "borderRadius": "50%",
+      "background": "rgb(255, 255, 255)",
+      "padding": "7px",
+      "gap": "7px"
+    }
+  ],
+  ".primary": [
+    {
+      "x": 1016.578125,
+      "y": 166.6875,
+      "width": 132.421875,
+      "height": 41,
+      "font": "10px / 15px Poppins, Arial, sans-serif",
+      "fontSize": "10px",
+      "borderRadius": "24px",
+      "background": "rgb(136, 105, 250)",
+      "padding": "10px 14px",
+      "gap": "7px"
+    }
+  ],
+  "select": [
+    {
+      "x": 291,
+      "y": 166.6875,
+      "width": 106,
+      "height": 41,
+      "font": "10px Poppins, Arial, sans-serif",
+      "fontSize": "10px",
+      "borderRadius": "20px",
+      "background": "rgb(255, 255, 255)",
+      "padding": "0px 14px",
+      "gap": "normal"
+    },
+    {
+      "x": 593,
+      "y": 396.078125,
+      "width": 118,
+      "height": 26,
+      "font": "9px Poppins, Arial, sans-serif",
+      "fontSize": "9px",
+      "borderRadius": "20px",
+      "background": "rgb(255, 255, 255)",
+      "padding": "5px 9px",
+      "gap": "normal"
+    },
+    {
+      "x": 718,
+      "y": 396.078125,
+      "width": 103,
+      "height": 26,
+      "font": "9px Poppins, Arial, sans-serif",
+      "fontSize": "9px",
+      "borderRadius": "20px",
+      "background": "rgb(255, 255, 255)",
+      "padding": "5px 9px",
+      "gap": "normal"
+    },
+    {
+      "x": 629.640625,
+      "y": 634.078125,
+      "width": 118,
+      "height": 26,
+      "font": "9px Poppins, Arial, sans-serif",
+      "fontSize": "9px",
+      "borderRadius": "20px",
+      "background": "rgb(255, 255, 255)",
+      "padding": "5px 9px",
+      "gap": "normal"
+    }
+  ],
+  "th": [
+    {
+      "x": 263,
+      "y": 672.078125,
+      "width": 92.609375,
+      "height": 35.5,
+      "font": "9px / 13.5px Poppins, Arial, sans-serif",
+      "fontSize": "9px",
+      "borderRadius": "24px 0px 0px 24px",
+      "background": "rgb(247, 244, 255)",
+      "padding": "11px 12px",
+      "gap": "normal"
+    },
+    {
+      "x": 355.609375,
+      "y": 672.078125,
+      "width": 77.59375,
+      "height": 35.5,
+      "font": "9px / 13.5px Poppins, Arial, sans-serif",
+      "fontSize": "9px",
+      "borderRadius": "0px",
+      "background": "rgb(247, 244, 255)",
+      "padding": "11px 12px",
+      "gap": "normal"
+    },
+    {
+      "x": 433.203125,
+      "y": 672.078125,
+      "width": 122.78125,
+      "height": 35.5,
+      "font": "9px / 13.5px Poppins, Arial, sans-serif",
+      "fontSize": "9px",
+      "borderRadius": "0px",
+      "background": "rgb(247, 244, 255)",
+      "padding": "11px 12px",
+      "gap": "normal"
+    },
+    {
+      "x": 555.984375,
+      "y": 672.078125,
+      "width": 126.328125,
+      "height": 35.5,
+      "font": "9px / 13.5px Poppins, Arial, sans-serif",
+      "fontSize": "9px",
+      "borderRadius": "0px",
+      "background": "rgb(247, 244, 255)",
+      "padding": "11px 12px",
+      "gap": "normal"
+    },
+    {
+      "x": 682.3125,
+      "y": 672.078125,
+      "width": 138.6875,
+      "height": 35.5,
+      "font": "9px / 13.5px Poppins, Arial, sans-serif",
+      "fontSize": "9px",
+      "borderRadius": "0px 24px 24px 0px",
+      "background": "rgb(247, 244, 255)",
+      "padding": "11px 12px",
+      "gap": "normal"
+    }
+  ],
+  "td": [
+    {
+      "x": 263,
+      "y": 707.578125,
+      "width": 92.609375,
+      "height": 40.5,
+      "font": "9px / 13.5px Poppins, Arial, sans-serif",
+      "fontSize": "9px",
+      "borderRadius": "0px",
+      "background": "rgba(0, 0, 0, 0)",
+      "padding": "10px 12px",
+      "gap": "normal"
+    },
+    {
+      "x": 355.609375,
+      "y": 707.578125,
+      "width": 77.59375,
+      "height": 40.5,
+      "font": "",
+      "fontSize": "9px",
+      "borderRadius": "0px",
+      "background": "rgba(0, 0, 0, 0)",
+      "padding": "10px 12px",
+      "gap": "normal"
+    },
+    {
+      "x": 433.203125,
+      "y": 707.578125,
+      "width": 122.78125,
+      "height": 40.5,
+      "font": "9px / 13.5px Poppins, Arial, sans-serif",
+      "fontSize": "9px",
+      "borderRadius": "0px",
+      "background": "rgba(0, 0, 0, 0)",
+      "padding": "10px 12px",
+      "gap": "normal"
+    },
+    {
+      "x": 555.984375,
+      "y": 707.578125,
+      "width": 126.328125,
+      "height": 40.5,
+      "font": "9px / 13.5px Poppins, Arial, sans-serif",
+      "fontSize": "9px",
+      "borderRadius": "0px",
+      "background": "rgba(0, 0, 0, 0)",
+      "padding": "10px 12px",
+      "gap": "normal"
+    },
+    {
+      "x": 682.3125,
+      "y": 707.578125,
+      "width": 138.6875,
+      "height": 40.5,
+      "font": "9px / 13.5px Poppins, Arial, sans-serif",
+      "fontSize": "9px",
+      "borderRadius": "0px",
+      "background": "rgba(0, 0, 0, 0)",
+      "padding": "10px 12px",
+      "gap": "normal"
+    },
+    {
+      "x": 263,
+      "y": 748.078125,
+      "width": 92.609375,
+      "height": 41,
+      "font": "9px / 13.5px Poppins, Arial, sans-serif",
+      "fontSize": "9px",
+      "borderRadius": "0px",
+      "background": "rgba(0, 0, 0, 0)",
+      "padding": "10px 12px",
+      "gap": "normal"
+    },
+    {
+      "x": 355.609375,
+      "y": 748.078125,
+      "width": 77.59375,
+      "height": 41,
+      "font": "",
+      "fontSize": "9px",
+      "borderRadius": "0px",
+      "background": "rgba(0, 0, 0, 0)",
+      "padding": "10px 12px",
+      "gap": "normal"
+    },
+    {
+      "x": 433.203125,
+      "y": 748.078125,
+      "width": 122.78125,
+      "height": 41,
+      "font": "9px / 13.5px Poppins, Arial, sans-serif",
+      "fontSize": "9px",
+      "borderRadius": "0px",
+      "background": "rgba(0, 0, 0, 0)",
+      "padding": "10px 12px",
+      "gap": "normal"
+    },
+    {
+      "x": 555.984375,
+      "y": 748.078125,
+      "width": 126.328125,
+      "height": 41,
+      "font": "9px / 13.5px Poppins, Arial, sans-serif",
+      "fontSize": "9px",
+      "borderRadius": "0px",
+      "background": "rgba(0, 0, 0, 0)",
+      "padding": "10px 12px",
+      "gap": "normal"
+    },
+    {
+      "x": 682.3125,
+      "y": 748.078125,
+      "width": 138.6875,
+      "height": 41,
+      "font": "9px / 13.5px Poppins, Arial, sans-serif",
+      "fontSize": "9px",
+      "borderRadius": "0px",
+      "background": "rgba(0, 0, 0, 0)",
+      "padding": "10px 12px",
+      "gap": "normal"
+    },
+    {
+      "x": 263,
+      "y": 789.078125,
+      "width": 92.609375,
+      "height": 41,
+      "font": "9px / 13.5px Poppins, Arial, sans-serif",
+      "fontSize": "9px",
+      "borderRadius": "0px",
+      "background": "rgba(0, 0, 0, 0)",
+      "padding": "10px 12px",
+      "gap": "normal"
+    },
+    {
+      "x": 355.609375,
+      "y": 789.078125,
+      "width": 77.59375,
+      "height": 41,
+      "font": "",
+      "fontSize": "9px",
+      "borderRadius": "0px",
+      "background": "rgba(0, 0, 0, 0)",
+      "padding": "10px 12px",
+      "gap": "normal"
+    },
+    {
+      "x": 433.203125,
+      "y": 789.078125,
+      "width": 122.78125,
+      "height": 41,
+      "font": "9px / 13.5px Poppins, Arial, sans-serif",
+      "fontSize": "9px",
+      "borderRadius": "0px",
+      "background": "rgba(0, 0, 0, 0)",
+      "padding": "10px 12px",
+      "gap": "normal"
+    },
+    {
+      "x": 555.984375,
+      "y": 789.078125,
+      "width": 126.328125,
+      "height": 41,
+      "font": "9px / 13.5px Poppins, Arial, sans-serif",
+      "fontSize": "9px",
+      "borderRadius": "0px",
+      "background": "rgba(0, 0, 0, 0)",
+      "padding": "10px 12px",
+      "gap": "normal"
+    },
+    {
+      "x": 682.3125,
+      "y": 789.078125,
+      "width": 138.6875,
+      "height": 41,
+      "font": "9px / 13.5px Poppins, Arial, sans-serif",
+      "fontSize": "9px",
+      "borderRadius": "0px",
+      "background": "rgba(0, 0, 0, 0)",
+      "padding": "10px 12px",
+      "gap": "normal"
+    }
+  ],
+  ".goal-track": [
+    {
+      "x": 867,
+      "y": 688.078125,
+      "width": 265,
+      "height": 18,
+      "font": "16px / 24px Poppins, Arial, sans-serif",
+      "fontSize": "16px",
+      "borderRadius": "20px",
+      "background": "rgb(238, 232, 253)",
+      "padding": "0px",
+      "gap": "normal"
+    },
+    {
+      "x": 867,
+      "y": 738.078125,
+      "width": 265,
+      "height": 18,
+      "font": "16px / 24px Poppins, Arial, sans-serif",
+      "fontSize": "16px",
+      "borderRadius": "20px",
+      "background": "rgb(238, 232, 253)",
+      "padding": "0px",
+      "gap": "normal"
+    },
+    {
+      "x": 867,
+      "y": 788.078125,
+      "width": 265,
+      "height": 18,
+      "font": "16px / 24px Poppins, Arial, sans-serif",
+      "fontSize": "16px",
+      "borderRadius": "20px",
+      "background": "rgb(238, 232, 253)",
+      "padding": "0px",
+      "gap": "normal"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "name": "finset-example-12",
+  "private": true,
+  "scripts": {
+    "test": "node tests/verify.cjs",
+    "test:visual": "node tests/verify.cjs --visual"
+  },
+  "devDependencies": {
+    "playwright-core": "1.62.1"
+  }
+}
