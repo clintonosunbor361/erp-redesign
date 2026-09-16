@@ -26,3 +26,5 @@ Open any example's `index.html` directly in a browser, including `example-5/inde
   Its reusable components, shared tokens, preserved visual exceptions, and regression checks are documented in [the Example 12 design system](example-12/design-system/README.md).
 
 - **Example 12 Copy:** FinSet dashboard with Siohioma's fashion CRM sidebar from Example 2 Clone Home, including collapsible navigation, section tooltips, and mobile navigation. Open `example-12 copy/index.html`.
+
+- **Example 12 Cardon:** The independently developed Cardon finance dashboard, preserved from GitHub's Example 12 during the merge. Open `example-12-cardon/index.html`.

@@ -58,6 +58,19 @@ syncSidebar();
 document.querySelector("#exportPdf").addEventListener("click",()=>{const t=document.querySelector("#toast");t.classList.add("show");setTimeout(()=>{t.classList.remove("show");window.print()},600)});
 renderTransactions();
 
+const kpiGroup=document.querySelector('.summary-grid');
+const kpiCards=[...kpiGroup.querySelectorAll('.kpi-card')];
+const defaultKpi=kpiCards[0];
+function highlightKpi(card=defaultKpi){
+ kpiCards.forEach(kpi=>kpi.classList.toggle('is-highlighted',kpi===card));
+}
+kpiCards.forEach(card=>{
+ card.addEventListener('pointerenter',()=>highlightKpi(card));
+ card.addEventListener('focusin',()=>highlightKpi(card));
+});
+kpiGroup.addEventListener('pointerleave',()=>highlightKpi());
+kpiGroup.addEventListener('focusout',event=>{if(!kpiGroup.contains(event.relatedTarget))highlightKpi()});
+
 const sectionTooltip=document.createElement('div');
 sectionTooltip.className='sidebar-tooltip';
 sectionTooltip.id='sidebar-section-tooltip';

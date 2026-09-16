@@ -44,7 +44,7 @@
 
       <div class="dashboard" id="overview">
         <div class="dashboard-head">
-          <div><h1>Good Day Admin</h1><p>Your sales, clients, and daily priorities in one place.</p></div>
+          <div class="greeting"><p class="greeting-date">TUESDAY, SEPTEMBER 2</p><h1>Good Morning Deji&amp;Kola</h1><p class="greeting-summary">Here’s what’s happening with your business today.</p></div>
           <div class="head-actions">
             <button id="exportPdf" class="export" type="button">⇩ Export PDF</button>
             <select id="range" aria-label="Reporting period"><option>January 2024 - May 2024</option><option>June 2024 - December 2024</option></select>
@@ -68,10 +68,11 @@
               <div class="charts">
                 <article class="panel sales-report">
                   <div class="title"><h2>Product Item Count</h2><button>•••</button></div>
-                  <div class="horizontal-chart">
-                    <div><label><span>Suit <b>(233)</b></span><strong>233 items</strong></label><span class="report-track"><i style="width:48%"></i></span></div>
-                    <div class="report-featured"><label><span>Agbada <b>(482)</b></span><strong>482 items</strong></label><span class="report-track"><i style="width:100%"></i><em>100%</em></span></div>
-                    <div><label><span>Kaftan <b>(317)</b></span><strong>317 items</strong></label><span class="report-track"><i style="width:66%"></i></span></div>
+                  <div class="product-count-chart horizontal-count-chart" aria-label="Product item counts">
+                    <div class="product-count-row"><label>Suit <b>(233)</b></label><span class="count-track"><i style="--count-width:48%"></i></span><strong>233</strong></div>
+                    <div class="product-count-row featured"><label>Agbada <b>(482)</b></label><span class="count-track"><i style="--count-width:100%"></i></span><strong>482</strong></div>
+                    <div class="product-count-row"><label>Kaftan <b>(317)</b></label><span class="count-track"><i style="--count-width:66%"></i></span><strong>317</strong></div>
+                    <div class="count-axis" aria-hidden="true"><span>0</span><span>250</span><span>500</span></div>
                   </div>
                 </article>
               </div>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cardon Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="browser">
+    <aside class="sidebar">
+      <a class="brand"><b><i data-lucide="wallet-cards"></i></b>Cardon <span><i data-lucide="panel-left-close"></i></span></a>
+      <nav>
+        <a class="active"><i data-lucide="house"></i><span>Home</span></a>
+        <a><i data-lucide="credit-card"></i><span>My Cards</span></a>
+        <a><i data-lucide="receipt-text"></i><span>Transactions</span></a>
+        <a><i data-lucide="calendar-sync"></i><span>Subscriptions</span></a>
+        <a><i data-lucide="chart-no-axes-column-increasing"></i><span>Budget</span></a>
+        <a><i data-lucide="sparkles"></i><span>Insights</span></a>
+      </nav>
+      <div class="side-bottom">
+        <div class="theme"><i data-lucide="moon"></i><span>Dark mode</span><button id="themeToggle" aria-label="Toggle dark mode"><i></i></button></div>
+        <button class="profile"><b>JI</b><span><strong>James Isaac <em>●</em></strong><small>Jamesisaac@gmail.com</small></span><i data-lucide="chevron-right"></i></button>
+      </div>
+    </aside>
+
+    <section class="workspace">
+      <header>
+        <div><h1>Good morning, James 👋🏾</h1><p>Here’s your money at a glance</p></div>
+        <label class="search"><i data-lucide="search"></i><input id="search" placeholder="Search transactions, merchants..."><kbd>⌘ K</kbd></label>
+        <button class="bell" aria-label="Notifications"><i data-lucide="bell"></i></button>
+        <button class="more" aria-label="More options"><i data-lucide="more-vertical"></i></button>
+        <span class="top-avatar">JI</span>
+      </header>
+
+      <div class="dashboard">
+        <div class="left-main">
+          <section class="kpis" id="kpis"></section>
+          <article class="section-card spending">
+            <h2>Spending this month</h2>
+            <div class="inner"><div class="donut"><svg viewBox="0 0 200 200" aria-hidden="true"><circle class="donut-track" cx="100" cy="100" r="72"/><circle class="donut-segment food" pathLength="100" cx="100" cy="100" r="72"/><circle class="donut-segment shopping" pathLength="100" cx="100" cy="100" r="72"/><circle class="donut-segment bills" pathLength="100" cx="100" cy="100" r="72"/><circle class="donut-segment subscriptions" pathLength="100" cx="100" cy="100" r="72"/><circle class="donut-segment remainder" pathLength="100" cx="100" cy="100" r="72"/></svg><div><small>Total Spent</small><strong>₦482K</strong><b>↗ 8.2%</b></div></div><div class="categories" id="categories"></div></div>
+          </article>
+          <article class="section-card recent">
+            <h2>Recent Transactions</h2>
+            <div class="table-head"><span>Merchant</span><span>Category</span><span>Date</span><span>Amount</span></div>
+            <div id="transactions"></div><p id="empty" hidden>No transactions found.</p>
+          </article>
+        </div>
+        <aside class="right-rail">
+          <article class="rail-card cards"><div class="rail-title"><h2>My cards</h2><button><i data-lucide="plus"></i> Add card</button></div><div class="card-frame"><div class="bank-card"><i></i><i></i><p>First Bank</p><small>₦120,500</small><div>Total wealth <i data-lucide="eye-off"></i><strong>₦482,500</strong></div></div></div></article>
+          <article class="rail-card compare"><h2>Income vs. spending</h2><div class="mini-chart"><div class="mini-legend"><span><i></i>Income</span><span><i></i>Spending</span></div><svg viewBox="0 0 300 160" preserveAspectRatio="none"><path class="grid" d="M0 20h300M0 60h300M0 100h300M0 140h300"/><polyline class="income" points="10,125 55,75 98,95 145,90 165,48 200,48 225,85 260,42 285,16"/><polyline class="expense" points="10,92 55,108 100,108 145,84 170,108 215,108 246,72 260,25 290,3"/></svg><div class="weeks"><span>Wk 1</span><span>Wk 2</span><span>Wk 3</span><span>Wk 4</span><span>Wk 5</span></div></div></article>
+        </aside>
+      </div>
+    </section>
+  </main>
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
