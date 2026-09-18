@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Inventory — Siohioma</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="design-system/tokens.css">
+  <link rel="stylesheet" href="design-system/components.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="customers.css">
+  <link rel="stylesheet" href="inventory.css">
+  <link rel="stylesheet" href="design-system/typography.css">
+</head>
+<body>
+  <main class="app customers-app">
+    <aside class="sidebar" id="sidebar">
+      <a href="index.html" class="logo" data-theme-link><span>✳</span><span class="brand-name">Siohioma</span></a>
+      <button class="sidebar-toggle" type="button" aria-label="Collapse sidebar" aria-expanded="true" aria-controls="sidebar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m14 6-6 6 6 6"/></svg></button>
+      <nav aria-label="Main navigation">
+        <a href="index.html" data-theme-link aria-label="Dashboard"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span class="nav-text">Dashboard</span></a>
+        <a href="orders.html" data-theme-link aria-label="Orders"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65"><path d="M5 7h14l2 14H3L5 7Z"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg><span class="nav-text">Orders</span></a>
+        <a class="active" aria-current="page" href="inventory.html" aria-label="Inventory"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65"><path d="m4 7 8-4 8 4-8 4-8-4Z"/><path d="m4 7v10l8 4 8-4V7M12 11v10"/></svg><span class="nav-text">Inventory</span></a>
+        <a href="customers.html" data-theme-link aria-label="Customers"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65"><circle cx="9" cy="8" r="3"/><path d="M3 21v-2a6 6 0 0 1 12 0v2m1-16a3 3 0 0 1 0 6m2 4a5 5 0 0 1 3 4v2"/></svg><span class="nav-text">Customers</span></a>
+        <a href="#analytics" aria-label="Analytics"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65"><path d="M4 3v18h17M8 17v-5m5 5V7m5 10V4"/></svg><span class="nav-text">Analytics</span></a>
+      </nav>
+      <div class="sidebar-footer"><div class="divider"></div><nav aria-label="Workspace settings"><a href="#settings"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65"><path d="m9 3 1-2h4l1 2 3 2 2 1v4l-1 2 1 2v4l-3 1-2 2h-5l-2-2-3-1v-4l1-2-1-2V6l2-1 2-2Z"/><circle cx="12" cy="12" r="3"/></svg><span class="nav-text">Settings</span></a><a href="#team"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 21v-2a6 6 0 0 1 12 0v2m1-6a5 5 0 0 1 5 5v1"/></svg><span class="nav-text">Team Space</span></a><a href="#logout"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65"><path d="M10 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h5"/><path d="m15 8 4 4-4 4m4-4H9"/></svg><span class="nav-text">Log out</span></a></nav><button class="user" type="button" aria-label="Open profile for Balikis Ibrahim"><span class="profile-avatar">BI</span><span class="profile-copy"><strong>Balikis Ibrahim</strong><small>Administrator</small></span><svg class="profile-more" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg></button></div>
+    </aside>
+    <section class="main" id="mainContent" tabindex="-1">
+      <div class="customers-content inventory-content">
+        <div class="customers-heading inventory-heading"><div class="customers-title"><button class="customers-mobile-menu" type="button" aria-label="Open menu">☰</button><div><h2>Inventory</h2><p><span id="productCount">0</span> product records</p></div></div><div class="customers-actions"><label class="customer-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="6"/><path d="m16 16 4 4"/></svg><input id="productSearch" type="search" placeholder="Search products" aria-label="Search products"></label><button id="addProduct" class="primary-action" type="button">+ Add product</button></div></div>
+        <nav class="inventory-tabs" aria-label="Inventory views"><button class="active" type="button" data-view="active" aria-pressed="true">Active <span id="activeCount"></span></button><button type="button" data-view="all" aria-pressed="false">All products <span id="allCount"></span></button></nav>
+        <section class="inventory-intro" aria-labelledby="inventoryIntroTitle"><div><h3 id="inventoryIntroTitle">Bring in your products and stock levels</h3><p>Create products manually, import them from a spreadsheet, or sync products from your ecommerce store.</p></div><button id="introAddProduct" class="secondary-action" type="button">Add a product</button></section>
+        <section class="customers-table-card inventory-table-card" aria-labelledby="inventoryTableTitle"><h3 id="inventoryTableTitle" class="sr-only">Product inventory</h3><div class="table-wrap"><table><thead><tr><th><input id="selectAllProducts" type="checkbox" aria-label="Select all visible products"></th><th>Product</th><th>Supplier</th><th>Type</th><th>Brand</th><th>Available</th><th>Status</th><th><span class="sr-only">Actions</span></th></tr></thead><tbody id="productRows"></tbody></table></div><div id="emptyProducts" class="empty-customers" hidden>No products match this view.</div><footer class="pagination"><span id="paginationSummary"></span><nav aria-label="Inventory table pages"><button id="previousPage" type="button">‹ Previous</button><span id="paginationPages"></span><button id="nextPage" type="button">Next ›</button></nav></footer></section>
+      </div>
+    </section>
+  </main>
+  <button class="drawer-backdrop" tabindex="-1" aria-label="Close navigation" hidden></button>
+  <div id="rowActions" class="row-actions" hidden><button type="button" data-action="view">View product</button><button type="button" data-action="edit">Edit product</button><button type="button" data-action="archive">Archive product</button></div>
+  <dialog id="productDialog"><form id="productForm"><div class="dialog-heading"><div><h2 id="productDialogTitle">Add product</h2><p id="productDialogIntro">Create a new inventory record.</p></div><button id="closeProductDialog" type="button" aria-label="Close">×</button></div><div class="form-grid"><label>Product name<input name="name" required></label><label>Supplier<input name="supplier" required></label><label>Product type<input name="type" required></label><label>Brand<input name="brand" required></label><label>Available units<input name="stock" type="number" min="0" required></label><label>Status<select name="status"><option>Active</option><option>Draft</option><option>Archived</option></select></label></div><div class="dialog-actions"><button id="cancelProduct" type="button">Cancel</button><button id="saveProduct" class="primary-action" type="submit">Add product</button></div></form></dialog>
+  <div id="customerToast" role="status" aria-live="polite"></div>
+  <script src="inventory.js"></script>
+</body>
+</html>

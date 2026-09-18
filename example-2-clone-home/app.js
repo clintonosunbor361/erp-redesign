@@ -1,68 +1,23 @@
-const dashboardData={moneyFlow:[['Jan',180000,120000],['Feb',210000,150000],['Mar',195000,135000],['Apr',240000,165000],['May',225000,160000],['Jun',260000,180000],['Jul',200000,100000]],previousNetIncome:435000,orders:{launched:233,ongoing:23,sold:226},returns:32000};
+const dashboardData={moneyFlow:[['Jan',180000,120000],['Feb',210000,150000],['Mar',195000,135000],['Apr',240000,165000],['May',225000,160000],['Jun',260000,180000],['Jul',200000,100000]],previousNetIncome:435000,orders:{launched:233,ongoing:48,sold:201},returns:32000};
 dashboardData.income=dashboardData.moneyFlow.reduce((sum,row)=>sum+row[1],0);
 dashboardData.expenses=dashboardData.moneyFlow.reduce((sum,row)=>sum+row[2],0);
 dashboardData.netIncome=dashboardData.income-dashboardData.expenses;
 dashboardData.totalOrders=Object.values(dashboardData.orders).reduce((sum,value)=>sum+value,0);
 dashboardData.netChange=(dashboardData.netIncome-dashboardData.previousNetIncome)/dashboardData.previousNetIncome*100;
-if(new URLSearchParams(location.search).get('theme')==='blue'){
+const selectedTheme=new URLSearchParams(location.search).get('theme');
+const customersLink=document.querySelector('[data-page="customers"]');
+if(customersLink&&selectedTheme)customersLink.href=`customers.html?theme=${encodeURIComponent(selectedTheme)}`;
+const ordersLink=document.querySelector('[data-page="orders"]');
+if(ordersLink&&selectedTheme)ordersLink.href=`orders.html?theme=${encodeURIComponent(selectedTheme)}`;
+const inventoryLink=document.querySelector('[data-page="inventory"]');
+if(inventoryLink&&selectedTheme)inventoryLink.href=`inventory.html?theme=${encodeURIComponent(selectedTheme)}`;
+if(selectedTheme==='blue'||selectedTheme==='green'){
  document.body.classList.add('theme-blue');
- const navigation=document.querySelector('.sidebar nav[aria-label="Fashion CRM"]');
- const sidebarItems=[
-  ['#overview','Dashboard'],
-  ['#orders','Orders'],
-  ['#clients','Customers'],
-  ['#collections','Inventory'],
-  ['#reports','Analytics']
- ].map(([href,label])=>{
-  const link=navigation.querySelector(`a[href="${href}"]`);
-  link.querySelector('.nav-text').textContent=label;
-  link.setAttribute('aria-label',label);
-  link.title=label;
-  if(label==='Inventory'){
-   link.href='#inventory';
-   link.querySelector('.nav-icon').innerHTML='<path d="m12 3 9 5v9l-9 5-9-5V8l9-5Zm-9 5 9 5 9-5M12 13v9M7.5 5.5l9 5"/>';
-  }
-  if(label==='Analytics')link.href='#statistics';
-  return link;
- });
- navigation.replaceChildren(...sidebarItems);
- const workspaceNavigation=document.querySelector('.sidebar nav[aria-label="Workspace settings"]');
- const teamLink=workspaceNavigation.querySelector('a[href="#security"]');
- teamLink.querySelector('.nav-text').textContent='Team space';
- teamLink.setAttribute('aria-label','Team space');
- teamLink.title='Team space';
- teamLink.querySelector('.nav-icon').innerHTML=navigation.querySelector('a[href="#clients"] .nav-icon').innerHTML;
- const sidebarFooter=document.createElement('div');
- sidebarFooter.className='sidebar-footer';
- sidebarFooter.append(workspaceNavigation);
- sidebarFooter.insertAdjacentHTML('beforeend','<div class="sidebar-profile" role="group" aria-label="Deji&amp;Kola, CEO" title="Deji&amp;Kola · CEO"><span class="sidebar-avatar" aria-hidden="true">DK</span><div class="sidebar-profile-copy"><strong>Deji&amp;Kola</strong><small>CEO</small></div></div>');
- document.querySelector('.sidebar').append(sidebarFooter);
- document.querySelector('.sidebar .divider').remove();
- document.querySelector('.sidebar .menu-label').remove();
- const revenueCard=document.querySelector('.dashboard-grid>.revenue');
- if(revenueCard&&window.FinSetUI){
-  const legacyHtml=revenueCard.innerHTML;
-  const flowData=dashboardData.moneyFlow.map(row=>[row[0],row[1]/300000*100,row[2]/300000*100]);
-  const actionsHtml='<div class="money-legend"><span><i></i>Income</span><span><i></i>Expense</span></div><select aria-label="Money flow account"><option>All accounts</option></select><select aria-label="Money flow period"><option>This year</option></select>';
-  const flowHtml='<div class="money-flow-chart"><div class="money-axis"><span>₦300k</span><span>₦200k</span><span>₦100k</span><span>₦0</span></div><div class="money-plot"><div class="money-bars">'+flowData.map(row=>`<span><i style="--bar:${row[1]}%"></i><i style="--bar:${row[2]}%"></i></span>`).join('')+'</div><div class="money-months">'+flowData.map(row=>`<span>${row[0]}</span>`).join('')+'</div></div></div><div class="legacy-revenue-engine" hidden>'+legacyHtml+'</div>';
-  const shell=document.createElement('template');
-  shell.innerHTML=FinSetUI.ChartCard({title:'Money flow',className:'panel revenue money-flow',attributes:{id:'statistics'},actionsHtml,contentHtml:flowHtml});
-  revenueCard.replaceWith(shell.content.firstElementChild);
- }
+ if(selectedTheme==='green')document.body.classList.add('theme-green');
  const incomeCard=document.querySelector('[data-detail="income"]')?.closest('.metric');
  if(incomeCard){incomeCard.querySelector('[data-naira]').dataset.naira=dashboardData.netIncome;incomeCard.querySelector('small').innerHTML=`↗ +${dashboardData.netChange.toFixed(1)}% <i>vs previous period</i>`}
  const ordersCard=document.querySelector('[data-detail="orders"]')?.closest('.metric');
  if(ordersCard)ordersCard.querySelector('h2').textContent=dashboardData.totalOrders;
- [['income','wallet'],['returns','return'],['orders','bag']].forEach(([key,icon])=>{
-  const card=document.querySelector(`[data-detail="${key}"]`)?.closest('.metric');
-  if(!card)return;
-  card.dataset.kpi=key;
-  const mark=document.createElement('span');
-  mark.className='kpi-icon';
-  mark.setAttribute('aria-hidden','true');
-  mark.innerHTML=FinSetUI.Icon(icon);
-  card.querySelector('p').prepend(mark);
- });
 }
 const products=[
   ["👕","Premium T-Shirt","Completed"],["♠","Playstation 5","Pending"],["♟","Hoodie Gonibong","Pending"],
@@ -73,7 +28,7 @@ const transactionDetails=[['Jul 12, 2024','₦48,000','Apparel'],['Jul 12, 2024'
 const list=document.querySelector("#transactionList");
 function renderTransactions(q=""){
   const filtered=products.filter(p=>p.join(" ").toLowerCase().includes(q.toLowerCase()));
-  list.innerHTML=filtered.slice(0,5).map(p=>{const detail=transactionDetails[products.indexOf(p)];const status=document.body.classList.contains('theme-blue')?SiohiomaUI.StatusBadge({label:p[2]}):'';return `<div class="transaction"><span class="transaction-name"><i class="product-icon">${p[0]}</i><strong>${p[1]}</strong>${status}</span><strong class="transaction-amount">${detail[1]}</strong><span class="transaction-category">${detail[2]}</span><span class="transaction-date">${detail[0]}</span></div>`}).join("")||'<p style="color:#888;font-size:11px">No matching transactions.</p>';
+  list.innerHTML=filtered.slice(0,5).map(p=>{const detail=transactionDetails[products.indexOf(p)];return `<div class="transaction"><span class="transaction-name"><i class="product-icon">${p[0]}</i><strong>${p[1]}</strong></span><strong class="transaction-amount">${detail[1]}</strong><span class="transaction-category">${detail[2]}</span><span class="transaction-date">${detail[0]}</span></div>`}).join("")||'<p style="color:#888;font-size:11px">No matching transactions.</p>';
 }
 document.querySelectorAll('[data-naira]').forEach(el => {
  const value=Number(el.dataset.naira);
@@ -122,7 +77,7 @@ sidebar.addEventListener('keydown',event=>{if(!mobileQuery.matches||!sidebar.cla
 mobileQuery.addEventListener('change',()=>{closeMobileSidebar()});
 document.addEventListener('keydown',event=>{if(event.key==='Escape'&&mobileQuery.matches&&sidebar.classList.contains('open')){closeMobileSidebar();mobileMenu.focus()}});
 syncSidebar();
-document.querySelector("#exportPdf").addEventListener("click",()=>{const t=document.querySelector("#toast");t.classList.add("show");setTimeout(()=>{t.classList.remove("show");window.print()},600)});
+document.querySelector("#exportPdf")?.addEventListener("click",()=>{const t=document.querySelector("#toast");t.classList.add("show");setTimeout(()=>{t.classList.remove("show");window.print()},600)});
 renderTransactions();
 
 const kpiGroup=document.querySelector('.summary-grid');

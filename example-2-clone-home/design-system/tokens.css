@@ -1,1 +1,26 @@
-:root{--ds-font-family:"DM Sans",Arial,sans-serif;--ds-weight-regular:400;--ds-weight-medium:500;--ds-weight-semibold:600;--ds-weight-bold:700;--ds-primary:#002c1d;--ds-primary-raised:#063c29;--ds-primary-soft:#245e4a;--ds-accent:#a7e22e;--ds-ink:#101812;--ds-muted:#7d827e;--ds-subtle:#9bada4;--ds-canvas:#d1d0ce;--ds-surface:#fff;--ds-soft:#f7f8f6;--ds-track:#eef1ed;--ds-border:#e4e7e3;--ds-border-strong:#d2d5d1;--ds-positive:#4bae5c;--ds-negative:#c85d62;--ds-warning:#d68d2c;--ds-space-1:4px;--ds-space-2:8px;--ds-space-3:12px;--ds-space-4:16px;--ds-space-5:20px;--ds-space-6:24px;--ds-space-7:28px;--ds-radius-control:9px;--ds-radius-pill:999px;--ds-radius-card:18px;--ds-radius-shell:24px;--ds-border-subtle:1px solid var(--ds-border);--ds-shadow-shell:0 24px 80px #6b6b6b30;--ds-control-height:36px;--ds-sidebar-width:220px;--ds-transition:180ms ease}
+:root{--ds-font-family:var(--font-sans);--ds-weight-regular:400;--ds-weight-medium:500;--ds-weight-semibold:600;--ds-weight-bold:700;--ds-primary:#002c1d;--ds-primary-raised:#063c29;--ds-primary-soft:#245e4a;--ds-accent:#a7e22e;--ds-ink:#101812;--ds-muted:#7d827e;--ds-subtle:#9bada4;--ds-canvas:#d1d0ce;--ds-surface:#fff;--ds-soft:#f7f8f6;--ds-track:#eef1ed;--ds-border:#e4e7e3;--ds-border-strong:#d2d5d1;--ds-positive:#4bae5c;--ds-negative:#c85d62;--ds-warning:#d68d2c;--ds-space-1:4px;--ds-space-2:8px;--ds-space-3:12px;--ds-space-4:16px;--ds-space-5:20px;--ds-space-6:24px;--ds-space-7:28px;--ds-radius-control:9px;--ds-radius-pill:999px;--ds-radius-card:18px;--ds-radius-shell:24px;--ds-border-subtle:1px solid var(--ds-border);--ds-shadow-shell:0 24px 80px #6b6b6b30;--ds-control-height:36px;--ds-sidebar-width:220px;--ds-transition:180ms ease}
+
+:root{
+ --font-sans:"Geist",sans-serif;
+ --text-display:40px;
+ --text-kpi:32px;
+ --text-heading:28px;
+ --text-section:18px;
+ --text-body:14px;
+ --text-label:13px;
+ --text-caption:12px;
+ --weight-regular:400;
+ --weight-medium:500;
+ --weight-semibold:600;
+ --leading-display:48px;
+ --leading-heading:36px;
+ --leading-section:26px;
+ --leading-body:20px;
+ --leading-label:18px;
+ --leading-caption:16px;
+ --ds-font-family:var(--font-sans);
+ --ds-weight-regular:var(--weight-regular);
+ --ds-weight-medium:var(--weight-medium);
+ --ds-weight-semibold:var(--weight-semibold);
+ --ds-weight-bold:var(--weight-semibold);
+}

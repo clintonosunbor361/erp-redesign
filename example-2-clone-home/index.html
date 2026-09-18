@@ -6,66 +6,73 @@
   <title>Siohioma Sales Dashboard</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="design-system/tokens.css" />
   <link rel="stylesheet" href="design-system/components.css" />
   <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="orders.css" />
+  <link rel="stylesheet" href="design-system/typography.css" />
 </head>
 <body>
   <main class="app">
     <aside class="sidebar" id="sidebar">
       <a href="#" class="logo"><span>✳</span><span class="brand-name">Siohioma</span></a>
       <button class="sidebar-toggle" type="button" aria-label="Collapse sidebar" aria-expanded="true" aria-controls="sidebar" title="Collapse sidebar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg></button>
-      <nav aria-label="Fashion CRM">
-        <a class="active" aria-current="page" href="#overview" aria-label="Overview" title="Overview"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span class="nav-text">Overview</span></a>
-        <a href="#clients" aria-label="Client Book" title="Client Book"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 21v-2a6 6 0 0 1 12 0v2m1-16a3 3 0 0 1 0 6m2 4a5 5 0 0 1 3 4v2"/></svg><span class="nav-text">Client Book</span></a>
-        <a href="#appointments" aria-label="Fittings & Styling" title="Fittings & Styling"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4m10-4v4M3 11h18m-13 5 2 2 4-4"/></svg><span class="nav-text">Fittings & Styling</span></a>
-        <a href="#collections" aria-label="Collections" title="Collections"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 3-6 4 3 5 3-2v11h8V10l3 2 3-5-6-4a4 4 0 0 1-8 0Z"/></svg><span class="nav-text">Collections</span></a>
-        <a href="#orders" aria-label="Client Orders" title="Client Orders"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7h14l2 14H3L5 7Z"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg><span class="nav-text">Client Orders</span></a>
-        <a href="#messages" aria-label="Conversations" title="Conversations"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11a8 8 0 0 1-8 8H7l-5 3 2-6a8 8 0 0 1-1-4V9a6 6 0 0 1 6-6h4a8 8 0 0 1 8 8Z"/><path d="M7 8h8m-8 4h5"/></svg><span class="nav-text">Conversations</span></a>
-        <a href="#campaigns" aria-label="Campaigns" title="Campaigns"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 10 13-5v14L3 14v-4Zm3 5 2 6h3l-2-5m10-9 2-2m-2 7h3m-3 5 2 2"/></svg><span class="nav-text">Campaigns</span></a>
-        <a href="#reports" aria-label="Sales Insights" title="Sales Insights"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 3v18h17M8 17v-5m5 5V7m5 10V4"/></svg><span class="nav-text">Sales Insights</span></a>
+      <nav aria-label="Main navigation">
+        <a class="active" aria-current="page" href="#overview" aria-label="Dashboard" title="Dashboard"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span class="nav-text">Dashboard</span></a>
+        <a href="orders.html" data-page="orders" aria-label="Orders" title="Orders"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7h14l2 14H3L5 7Z"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg><span class="nav-text">Orders</span></a>
+        <a href="inventory.html" data-page="inventory" aria-label="Inventory" title="Inventory"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 7 8-4 8 4-8 4-8-4Z"/><path d="m4 7v10l8 4 8-4V7M12 11v10"/></svg><span class="nav-text">Inventory</span></a>
+        <a href="customers.html" data-page="customers" aria-label="Customers" title="Customers"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 21v-2a6 6 0 0 1 12 0v2m1-16a3 3 0 0 1 0 6m2 4a5 5 0 0 1 3 4v2"/></svg><span class="nav-text">Customers</span></a>
+        <a href="#analytics" aria-label="Analytics" title="Analytics"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 3v18h17M8 17v-5m5 5V7m5 10V4"/></svg><span class="nav-text">Analytics</span></a>
       </nav>
-      <div class="divider"></div>
-      <p class="menu-label">WORKSPACE</p>
-      <nav aria-label="Workspace settings">
-<a href="#settings" aria-label="Settings" title="Settings"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 3 1-2h4l1 2 3 2 2 1v4l-1 2 1 2v4l-3 1-2 2h-5l-2-2-3-1v-4l1-2-1-2V6l2-1 2-2Z"/><circle cx="12" cy="12" r="3"/></svg><span class="nav-text">Settings</span></a>
-<a href="#security" aria-label="Team & Access" title="Team & Access"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2 9 4v6c0 5-5 9-9 10-4-1-9-5-9-10V6l9-4Z"/><path d="m8 12 3 3 5-6"/></svg><span class="nav-text">Team & Access</span></a>
-      </nav>
+      <div class="sidebar-footer">
+        <div class="divider"></div>
+        <nav aria-label="Workspace settings">
+          <a href="#settings" aria-label="Settings" title="Settings"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 3 1-2h4l1 2 3 2 2 1v4l-1 2 1 2v4l-3 1-2 2h-5l-2-2-3-1v-4l1-2-1-2V6l2-1 2-2Z"/><circle cx="12" cy="12" r="3"/></svg><span class="nav-text">Settings</span></a>
+          <a href="#team" aria-label="Team Space" title="Team Space"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 21v-2a6 6 0 0 1 12 0v2m1-6a5 5 0 0 1 5 5v1"/></svg><span class="nav-text">Team Space</span></a>
+          <a href="#logout" aria-label="Log out" title="Log out"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h5"/><path d="m15 8 4 4-4 4m4-4H9"/></svg><span class="nav-text">Log out</span></a>
+        </nav>
+        <button class="user" type="button" aria-label="Open profile for Balikis Ibrahim">
+          <span class="profile-avatar" aria-hidden="true">BI</span>
+          <span class="profile-copy"><strong>Balikis Ibrahim</strong><small>Administrator</small></span>
+          <svg class="profile-more" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg>
+        </button>
+      </div>
     </aside>
 
     <section class="main" id="mainContent" tabindex="-1">
-      <header>
+      <header class="topbar">
         <button class="mobile-menu" type="button" aria-label="Open menu">☰</button>
-        <button class="role" type="button">Sales Admin⌄</button>
-        <label class="search"><input id="search" type="search" aria-label="Search transactions" placeholder="Search transactions..." /><span>⌕</span></label>
-        <button class="round" type="button" aria-label="Inbox">▣</button>
-        <button class="round" type="button" aria-label="Share">⌘</button>
-        <button class="add" type="button">Add new product <b>+</b></button>
+        <div class="header-greeting"><h1>Good morning, Balikis</h1><p>Here’s your business at a glance</p></div>
+        <div class="header-actions">
+          <label class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="m16 16 4 4"/></svg><input id="search" type="search" aria-label="Search transactions" placeholder="Search transactions, customers..." /></label>
+          <button class="header-icon" type="button" aria-label="Notifications"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/><path d="M10 21h4"/></svg></button>
+          <button class="header-icon" type="button" aria-label="More options"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg></button>
+          <button class="header-avatar" type="button" aria-label="Open Balikis Ibrahim profile">BI</button>
+        </div>
       </header>
 
       <div class="dashboard" id="overview">
-        <div class="dashboard-head">
-          <div><h1>Welcome back, Balikis!</h1><p>It is the best time to manage your finances</p></div>
-          <div class="head-actions">
-            <button id="exportPdf" class="export" type="button">⇩ Export PDF</button>
-            <select id="range" aria-label="Reporting period"><option>January 2024 - May 2024</option><option>June 2024 - December 2024</option></select>
+        <div class="dashboard-filterbar" aria-label="Dashboard date controls">
+          <div class="dashboard-date-filter">
+            <button id="customRangeToggle" class="dashboard-date-toggle" type="button" aria-label="Choose a custom date range" aria-expanded="false">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4m10-4v4M3 10h18"/></svg>
+              <span id="dashboardDateLabel">January 2026 – June 2026</span>
+              <svg class="date-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+            </button>
+            <form id="customRevenueRange" hidden><label>From<input id="revenueFrom" type="month" min="2025-01" max="2026-12" value="2026-01" required></label><label>To<input id="revenueTo" type="month" min="2025-01" max="2026-12" value="2026-06" required></label><button type="submit">Apply</button><p id="rangeError" role="status"></p></form>
           </div>
         </div>
-
         <section class="layout dashboard-grid">
           <div class="summary-grid"><article class="update-card kpi-card is-highlighted"><p><span></span> Update</p><small>Feb 12th 2024</small><h2>Sales revenue increased<br><b>40%</b> in 1 week</h2><a href="#statistics">See Statistics ›</a></article><article class="metric kpi-card"><div><p>Net Income</p><button class="detail-arrow" type="button" data-detail="income" aria-label="View net income details" title="View net income details"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18 18 6M7 6h11v11"/></svg></button></div><h2 data-naira="193000"><span class="currency-symbol">&#8358;</span>193,000</h2><small class="up">↗ +35% <i>from last month</i></small></article><article class="metric kpi-card"><div><p>Total Return</p><button class="detail-arrow" type="button" data-detail="returns" aria-label="View total return details" title="View total return details"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18 18 6M7 6h11v11"/></svg></button></div><h2 data-naira="32000"><span class="currency-symbol">&#8358;</span>32,000</h2><small class="down">↘ -24% <i>from last month</i></small></article><article class="metric kpi-card"><div><p>Total Orders</p><button class="detail-arrow" type="button" data-detail="orders" aria-label="View order details" title="View order details"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18 18 6M7 6h11v11"/></svg></button></div><h2>482</h2><small>Orders placed this period</small></article></div>
           <article class="panel revenue" id="statistics">
- <div class="revenue-heading"><div><h2>Revenue</h2><p id="revenueInsight" class="revenue-insight"></p></div><div class="revenue-controls"><select id="revenuePeriod" aria-label="Revenue chart period"><option value="6">6 Months</option><option value="12">1 Year</option><option value="custom">Custom</option></select><button class="detail-arrow" type="button" data-detail="revenue" aria-label="View revenue details" title="View revenue details"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18 18 6M7 6h11v11"/></svg></button></div></div>
- <div class="revenue-overview"><div><strong id="chartTotal"></strong><small id="chartRange"></small></div><div class="revenue-legend" aria-label="Chart legend"><span><i class="revenue-key"></i>Revenue</span><span><i class="expenses-key"></i>Expenses</span><span><i class="profit-key"></i>Net Profit</span></div></div>
- <form id="customRevenueRange" hidden><label>From<input id="revenueFrom" type="month" min="2025-01" max="2026-12" value="2026-01" required></label><label>To<input id="revenueTo" type="month" min="2025-01" max="2026-12" value="2026-06" required></label><button type="submit">Apply</button><p id="rangeError" role="status"></p></form>
+ <div class="revenue-heading"><div><h2>Revenue</h2></div><div class="revenue-controls"><div class="timeframe-control" aria-label="Revenue timeframe"><button type="button" data-period="3">3M</button><button type="button" data-period="6" class="active" aria-pressed="true">6M</button><button type="button" data-period="12">1Y</button></div><button id="compareRevenue" class="compare-control" type="button" aria-pressed="false">Compare</button><button class="detail-arrow" type="button" data-detail="revenue" aria-label="View revenue details" title="View revenue details"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18 18 6M7 6h11v11"/></svg></button></div></div>
+ <div class="revenue-overview"><div><strong id="chartTotal"></strong><small id="chartRange"></small></div><div class="revenue-legend" aria-label="Toggle chart series"><button type="button" data-series="revenue" aria-pressed="true"><i class="revenue-key"></i>Revenue</button><button type="button" data-series="expenses" aria-pressed="true"><i class="expenses-key"></i>Expenses</button><button type="button" data-series="profit" aria-pressed="true"><i class="profit-key"></i>Net Profit</button></div></div>
  <div class="revenue-chart-shell"><div id="revenueYAxis" aria-hidden="true"></div><div class="revenue-scroll"><div id="revenueChart" class="premium-chart"><svg id="revenueSvg" viewBox="0 0 720 210" preserveAspectRatio="none" aria-hidden="true"></svg><div id="revenueMonthTargets"></div><div id="revenueMonthLabels"></div></div></div><div id="revenueTooltip" role="tooltip" hidden></div></div>
- <div class="revenue-footer"><span>Monthly totals ? NGN</span><span id="profitSummary"></span></div>
+ <p id="chartDescription" class="sr-only"></p>
  </article>
           <article class="panel sales-report">
                   <div class="title"><h2>Total Sales Report</h2><button class="detail-arrow" type="button" data-detail="sales" aria-label="View total sales report details" title="View total sales report details"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18 18 6M7 6h11v11"/></svg></button></div>
-                  <div class="sales-half-donut" role="img" aria-label="Total sales: 482"><svg viewBox="0 0 200 120" aria-hidden="true"><path class="sales-arc sales-arc-one" d="M20 100A80 80 0 0 1 60 30.7"/><path class="sales-arc sales-arc-two" d="M80.6 22.4A80 80 0 0 1 124.7 23.9"/><path class="sales-arc sales-arc-three" d="M144.7 33.7A80 80 0 0 1 180 100"/></svg><strong>482</strong><small>Total sales</small></div><div class="sales-breakdown" aria-label="Sales breakdown"><span><i></i>Launched <b>233</b></span><span><i></i>Ongoing <b>23</b></span><span><i></i>Sold <b>226</b></span></div>
+                  <div class="sales-half-donut" role="img" aria-label="Total sales: 482. Launched 233, ongoing 48, sold 201."><svg viewBox="0 0 200 120" aria-hidden="true"><path class="sales-arc sales-arc-one" d="M20 100A80 80 0 0 1 82.47 21.94"/><path class="sales-arc sales-arc-two" d="M96.29 20.09A80 80 0 0 1 118.37 22.14"/><path class="sales-arc sales-arc-three" d="M131.62 26.51A80 80 0 0 1 180 100"/></svg><strong>482</strong><small>Total sales</small></div><div class="sales-breakdown" aria-label="Sales breakdown"><span><i></i>Launched <b>233</b></span><span><i></i>Ongoing <b>48</b></span><span><i></i>Sold <b>201</b></span></div>
                 </article>
           <article class="panel transactions" id="transactions"><div class="title"><h2>Transaction</h2><button class="detail-arrow" type="button" data-detail="transactions" aria-label="View transaction details" title="View transaction details"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18 18 6M7 6h11v11"/></svg></button></div><div class="transaction-table-head"><span>Name</span><span>Amount</span><span>Category</span><span>Date</span></div><div id="transactionList"></div></article>
 
@@ -89,7 +96,5 @@
   <script src="currency.js"></script>
   <script src="app.js"></script>
   <script src="revenue-chart.js"></script>
-  <script src="orders-model.js"></script>
-  <script src="orders.js"></script>
 </body>
 </html>

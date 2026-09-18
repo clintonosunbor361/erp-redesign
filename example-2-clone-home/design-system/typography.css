@@ -1,0 +1,103 @@
+/* Shared CRM typography roles. Loaded after component styles to enforce one scale. */
+html,body,button,input,select,textarea{font-family:var(--font-sans)!important}
+body{font-size:var(--text-body)!important;font-weight:var(--weight-regular)!important;line-height:var(--leading-body)!important}
+h1,h2,h3,h4,h5,h6,p{font-family:inherit}
+b,strong{font-weight:var(--weight-semibold)!important}
+
+/* Page headings */
+.topbar .header-greeting h1,
+.customers-heading h2,
+body.theme-blue .customers-heading h2,
+body.theme-blue.theme-green .customers-heading h2,
+.dashboard-head h1{font-size:var(--text-heading)!important;font-weight:var(--weight-semibold)!important;line-height:var(--leading-heading)!important;letter-spacing:-.4px!important}
+
+/* KPI and major numeric metrics */
+.dashboard-grid .metric h2,
+body.theme-blue .dashboard-grid .summary-grid>.metric h2,
+#chartTotal,
+.revenue h3>[data-naira],
+.sales-half-donut strong{font-size:var(--text-kpi)!important;font-weight:var(--weight-medium)!important;line-height:var(--leading-heading)!important;letter-spacing:-.5px!important}
+
+/* Section and dialog headings */
+.title h2,
+.performance h2,
+.revenue-heading h2,
+body.theme-blue .revenue-heading h2,
+.card-head h2,
+.dialog-heading h2,
+body.theme-blue .dialog-heading h2,
+.detail-heading h2,
+#statusConfirm h2,
+body.theme-blue #statusConfirm h2{font-size:var(--text-section)!important;font-weight:var(--weight-semibold)!important;line-height:var(--leading-section)!important;letter-spacing:-.2px!important}
+
+/* Standard UI and table content */
+p,
+td,
+input,
+select,
+textarea,
+#detailContent,
+.transaction-copy strong,
+.transaction-status strong,
+.order-id,
+.order-customer,
+.order-amount,
+.customer-name{font-size:var(--text-body)!important;font-weight:var(--weight-regular)!important;line-height:var(--leading-body)!important}
+.order-id,.order-amount,.customer-name,.order-customer{font-weight:var(--weight-medium)!important}
+
+/* Labels, controls, navigation, and table headers */
+button,
+label,
+th,
+.sidebar nav .nav-text,
+.sidebar nav a,
+.primary-action,
+.secondary-action,
+.order-tabs button,
+.order-status,
+.status-menu button,
+.row-actions button,
+.pagination button,
+.revenue-controls button,
+.revenue-legend button,
+.form-grid label{font-size:var(--text-label)!important;font-weight:var(--weight-medium)!important;line-height:var(--leading-label)!important}
+th{font-weight:var(--weight-semibold)!important}
+.logo .brand-name{font-size:var(--text-section)!important;font-weight:var(--weight-semibold)!important;line-height:var(--leading-section)!important}
+
+/* Captions, metadata, chart labels, and supporting copy */
+small,
+.menu-label,
+.header-greeting p,
+.customers-heading p,
+.revenue-insight,
+#chartRange,
+.revenue-legend,
+#revenueYAxis,
+.month-label,
+.revenue-footer,
+.transaction-copy small,
+.transaction-status small,
+.sales-breakdown span,
+.pagination>span,
+.dialog-heading p,
+#statusConfirm p,
+.filter-panel label,
+.empty-customers,
+#customerToast,
+.bar-tooltip,
+.sidebar-tooltip{font-size:var(--text-caption)!important;font-weight:var(--weight-regular)!important;line-height:var(--leading-caption)!important}
+.revenue-insight strong,.revenue-footer strong,.sales-breakdown b{font-weight:var(--weight-medium)!important}
+
+/* Compact card copy still uses approved roles. */
+.update-card p,.metric p{font-size:var(--text-label)!important;font-weight:var(--weight-semibold)!important;line-height:var(--leading-label)!important}
+.update-card h2{font-size:var(--text-body)!important;font-weight:var(--weight-regular)!important;line-height:var(--leading-body)!important}
+.update-card small,.update-card a,.metric small{font-size:var(--text-caption)!important;line-height:var(--leading-caption)!important}
+.metric small{font-weight:var(--weight-medium)!important}
+
+/* Functional glyph controls use an approved display role without affecting SVG icons. */
+.mobile-menu,.customers-mobile-menu,.customer-menu,.dialog-heading>button,#closeDetails{font-size:var(--text-section)!important;line-height:var(--leading-section)!important}
+.profile-avatar,.customer-avatar{font-size:var(--text-caption)!important;font-weight:var(--weight-semibold)!important;line-height:var(--leading-caption)!important}
+
+@media(max-width:520px){
+ .customers-heading h2,body.theme-blue .customers-heading h2,body.theme-blue.theme-green .customers-heading h2{font-size:var(--text-heading)!important;line-height:var(--leading-heading)!important}
+}
